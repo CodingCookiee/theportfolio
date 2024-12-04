@@ -1,9 +1,12 @@
-function App() {
+import React from 'react';
+
+const App = () => {
   return (
-    <div className="App text-5xl text-center font-bold">
-      <h1>Vite + React</h1>
+    <div>
+    <h1>Hello, World!</h1>
     </div>
   );
 }
 
 export default App;
+ 
