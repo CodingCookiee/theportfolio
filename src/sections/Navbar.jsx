@@ -10,15 +10,18 @@ import AudioButton from "../utils/AudioButton";
 const Navbar = () => {
   const { isDark, setIsDark } = useTheme();
 
-  const themeAudioRef = useRef(null);
+  const clickAudioRef = useRef(null);
   const linkAudioRef = useRef(null);
 
   const toggleTheme = () => {
-    themeAudioRef.current.currentTime = 0;
-    themeAudioRef.current.play().catch((error) => {
-      console.log("Theme toggle audio playback failed:", error);
-    });
     setIsDark(!isDark);
+  };
+
+  const toggleClickAudio = () => {
+    clickAudioRef.current.currentTime = 0;
+    clickAudioRef.current.play().catch((error) => {
+      console.log("click audio playback failed:", error);
+    });
   };
 
   const toggleLinkAudio = () => {
@@ -39,8 +42,8 @@ const Navbar = () => {
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
-    themeAudioRef.current.currentTime = 0;
-    themeAudioRef.current.play();
+    clickAudioRef.current.currentTime = 0;
+    clickAudioRef.current.play();
   };
 
   useEffect(() => {
@@ -105,7 +108,7 @@ const Navbar = () => {
       ref={navContainerRef}
       className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 bg-light-primary dark:bg-dark-primary"
     >
-      <audio ref={themeAudioRef} src="/audios/mouse-click.wav" preload="auto" />
+      <audio ref={clickAudioRef} src="/audios/mouse-click.wav" preload="auto" />
       <audio ref={linkAudioRef} src="/audios/modern-tech.wav" preload="auto" />
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex items-center justify-between size-full p-4">
@@ -118,11 +121,17 @@ const Navbar = () => {
               }
               alt="logo"
               className="w-14 h-14 cursor-pointer"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                toggleClickAudio();
+              }}
             />
             <Button
               id="theme-toggle"
-              onClick={toggleTheme}
+              onClick={() => {
+                toggleTheme();
+                toggleClickAudio();
+              }}
               leftIcon={
                 <img
                   src={isDark ? "/assets/sun.png" : "/assets/moon.png"}
@@ -150,7 +159,11 @@ const Navbar = () => {
               onClick={toggleAudioIndicator}
               className="ml-10 flex items-center space-x-0.5"
             >
-              <audio ref={audioElementRef} src="/audio/loop.mp3" loop />
+              <audio
+                ref={audioElementRef}
+                src="/audios/hero-animation.mp3"
+                loop
+              />
               <AudioButton isPlaying={isAudioPlaying} />
             </button>
           </div>
@@ -159,5 +172,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;

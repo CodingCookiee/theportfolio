@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import loadingAnimation from "/public/loading.json";
+import loadingAnimation from "/src/loading.json";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import Experience from "./sections/Experience";
@@ -10,6 +10,7 @@ import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import { useTheme } from "./utils/ThemeContext";
 import { ThemeProvider } from "./utils/ThemeContext";
+import CustomCursor from "./utils/CustomCursor";
 
 const LoadingScreen = () => {
   const { isDark, setIsDark } = useTheme();
@@ -44,6 +45,7 @@ const App = () => {
 
   return (
     <ThemeProvider>
+      <CustomCursor />
       {loading ? (
         <LoadingScreen />
       ) : (
