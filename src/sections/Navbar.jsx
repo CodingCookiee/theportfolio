@@ -7,11 +7,25 @@ import { useTheme } from "../utils/ThemeContext";
 import { navLinks } from "../constants/index.js";
 import AudioButton from "../utils/AudioButton";
 
-const Navbar = () => {
+const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const { isDark, setIsDark } = useTheme();
+  const [isAudioPlaying, setIsAudioPlaying] = useState(audioEnabled);
+  const [isIndicatorActive, setIsIndicatorActive] = useState(
+    audioIndicatorEnabled
+  );
+  const { y: currentScrollY } = useWindowScroll();
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const clickAudioRef = useRef(null);
   const linkAudioRef = useRef(null);
+  const navContainerRef = useRef(null);
+  const audioElementRef = useRef(null);
+
+  useEffect(() => {
+    setIsAudioPlaying(audioEnabled);
+    setIsIndicatorActive(audioIndicatorEnabled);
+  }, [audioEnabled, audioIndicatorEnabled]);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -30,14 +44,6 @@ const Navbar = () => {
       console.log("toggle audio playback failed:", error);
     });
   };
-
-  const [isAudioPlaying, setIsAudioPlaying] = useState(true);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(true);
-  const navContainerRef = useRef(null);
-  const audioElementRef = useRef(null);
-  const { y: currentScrollY } = useWindowScroll();
-  const [isNavVisible, setIsNavVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);

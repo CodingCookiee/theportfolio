@@ -34,6 +34,8 @@ const LoadingScreen = () => {
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [audioIndicatorEnabled, setAudioIndicatorEnabled] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -45,19 +47,25 @@ const App = () => {
 
   return (
     <ThemeProvider>
-      <CustomCursor />
       {loading ? (
         <LoadingScreen />
       ) : (
         <div className="App min-h-screen flex flex-col dark:bg-dark-primary bg-light-primary transition-colors duration-300">
-          <Navbar />
-          <main className="flex-1 max-w-7xl w-full mx-auto">
-            <Hero />
-            <Experience />
-            <Projects />
-            <Skills />
-            <Contact />
-          </main>
+          <CustomCursor
+            onFirstClick={() => {
+              setAudioEnabled(true);
+              setAudioIndicatorEnabled(true);
+            }}
+          />
+          <Navbar
+            audioEnabled={audioEnabled}
+            audioIndicatorEnabled={audioIndicatorEnabled}
+          />
+          <Hero />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
           <Footer />
         </div>
       )}
