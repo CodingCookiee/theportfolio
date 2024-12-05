@@ -111,9 +111,13 @@ const Navbar = () => {
         <nav className="flex items-center justify-between size-full p-4">
           <div className="flex items-center gap-0">
             <img
-              src="/model-light.png"
+              src={
+                isDark
+                  ? "/assets/favicon-light.svg"
+                  : "/assets/favicon-dark.svg"
+              }
               alt="logo"
-              className="w-10 cursor-pointer"
+              className="w-14 h-14 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             />
             <Button
@@ -121,9 +125,9 @@ const Navbar = () => {
               onClick={toggleTheme}
               leftIcon={
                 <img
-                  src={isDark ? "/sun.png" : "/moon.png"}
+                  src={isDark ? "/assets/sun.png" : "/assets/moon.png"}
                   alt="Toggle theme"
-                  className="w-5 h-5 transition-all duration-500 hover:scale-125"
+                  className="w-8 h-8 transition-all duration-300 hover:scale-125"
                 />
               }
               containerClass="mb-2.5 md:flex hidden items-center justify-center gap-1 outline-none border-none"
