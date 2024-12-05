@@ -103,26 +103,6 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     );
   }, [isNavVisible]);
 
-  useEffect(() => {
-    const audioElement = audioElementRef.current;
-    const playAudio = () => {
-      audioElement.play().catch((error) => {
-        console.error("Audio playback failed:", error);
-      });
-    };
-
-    const handleUserInteraction = () => {
-      playAudio();
-      document.removeEventListener("click", handleUserInteraction);
-    };
-
-    document.addEventListener("click", handleUserInteraction);
-
-    return () => {
-      document.removeEventListener("click", handleUserInteraction);
-    };
-  }, []);
-
   return (
     <div
       ref={navContainerRef}
@@ -144,6 +124,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 toggleClickAudio();
+                window.location.href = "/";
               }}
             />
             <Button
@@ -168,7 +149,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
             {navLinks.map((link, index) => (
               <a
                 key={index}
-                href={`#${link}`}
+                href={`#${link.name}`}
                 onClick={toggleLinkAudio}
                 className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
               >
@@ -177,7 +158,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
             ))}
             <button
               onClick={toggleAudioIndicator}
-              className="ml-6 flex items-center space-x-0.5"
+              className="ml-6 flex items-center space-x-0.5 !outline-none !border-none"
             >
               <audio
                 ref={audioElementRef}
@@ -217,7 +198,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
             {navLinks.map((link, index) => (
               <a
                 key={index}
-                href={`#${link}`}
+                href={`#${link.name}`}
                 onClick={() => {
                   toggleLinkAudio();
                   toggleMobileMenu();
@@ -227,10 +208,10 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
                 {link.name.toLowerCase()}
               </a>
             ))}
-            <div className="flex justify-center py-2">
+            <div className="flex justify-center py-2 ">
               <button
                 onClick={toggleAudioIndicator}
-                className="flex items-center space-x-0.5"
+                className="flex items-center space-x-0.5 !outline-none !border-none"
               >
                 <AudioButton isPlaying={isAudioPlaying} />
               </button>

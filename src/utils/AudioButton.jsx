@@ -4,11 +4,10 @@ const AudioButton = ({ isPlaying }) => {
   const { isDark } = useTheme();
 
   return (
-    //   ${isDark ? "bg-white" : "bg-blue-200"}
     <div
-      className={`flex items-center px-2 py-1 justify-center  rounded-lg  ${isPlaying ? "bg-yellow-400" : ""}`}
+      className={` flex items-center px-2 py-1 justify-center  rounded-lg  ${isPlaying ? "bg-yellow-400" : ""}`}
     >
-      <div className="self-center rounded-full cursor-pointer transition-all duration-300 hover:scale-110">
+      <div className=" self-center rounded-full cursor-pointer transition-all duration-300 hover:scale-110">
         <svg
           viewBox="0 0 12 9"
           xmlns="http://www.w3.org/2000/svg"
