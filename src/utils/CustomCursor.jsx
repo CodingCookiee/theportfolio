@@ -87,11 +87,11 @@ const CustomCursor = ({ onFirstClick }) => {
           {showSplash && (
             <div className="relative">
               <div
-                className={`absolute -bottom-12 -right-16 whitespace-nowrap text-sm ${isDark ? "text-white" : "text-black"}`}
+                className={`absolute -bottom-12 -left-16 whitespace-nowrap text-xs font-generalsans text-center uppercase ${isDark ? "text-white" : "text-black"}`}
               >
                 Click to enable sounds
               </div>
-              <div className="absolute -bottom-3 -right-3 p-5 bg-yellow-500 animate-ping border-2 border-yellow-400 rounded-full" />
+              <div className="absolute -bottom-3 -right-3 p-5 bg-yellow-400 animate-ping border-2 border-yellow-400 rounded-full" />
             </div>
           )}
         </>

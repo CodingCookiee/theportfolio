@@ -57,6 +57,24 @@ body {
 }
 
 @layer utilities {
+  .mobile-menu-btn {
+    @apply md:hidden p-2 transition-colors duration-300;
+  }
+
+  .mobile-menu {
+    @apply md:hidden overflow-hidden bg-light-primary dark:bg-dark-primary border-t border-neutral-800 dark:border-white/20;
+  }
+
+  .mobile-nav-link {
+    @apply block py-3 text-center nav-li transition-all duration-300 hover:bg-light-secondary dark:hover:bg-dark-secondary;
+  }
+
+  .hamburger-line {
+    @apply h-0.5 w-6 bg-light-text dark:bg-dark-text block transition-all duration-300;
+  }
+}
+
+@layer utilities {
   .border-hsla {
     @apply border border-white/20;
   }
