@@ -72,6 +72,19 @@ body {
   .hamburger-line {
     @apply h-0.5 w-6 bg-light-text dark:bg-dark-text block transition-all duration-300;
   }
+
+  .nav-container {
+    @apply fixed inset-x-0 top-4 z-50 h-auto border-none transition-all duration-700 
+    sm:inset-x-6 bg-light-primary/95 dark:bg-dark-primary/95 backdrop-blur-md 
+    rounded-lg shadow-lg;
+  }
+
+  .mobile-nav-item {
+    @apply block py-2 text-center text-lg font-medium 
+    text-neutral-800 dark:text-white 
+    hover:text-neutral-600 dark:hover:text-neutral-300 
+    transition-colors;
+  }
 }
 
 @layer utilities {

@@ -16,11 +16,13 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const clickAudioRef = useRef(null);
   const linkAudioRef = useRef(null);
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     setIsAudioPlaying(audioEnabled);
@@ -29,6 +31,11 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
   const toggleTheme = () => {
     setIsDark(!isDark);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    toggleClickAudio();
   };
 
   const toggleClickAudio = () => {
@@ -51,6 +58,16 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     clickAudioRef.current.currentTime = 0;
     clickAudioRef.current.play();
   };
+
+  // Handle mobile menu animation
+  useEffect(() => {
+    gsap.to(mobileMenuRef.current, {
+      height: isMobileMenuOpen ? "auto" : 0,
+      opacity: isMobileMenuOpen ? 1 : 0,
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     if (isAudioPlaying) {
@@ -97,28 +114,25 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     const handleUserInteraction = () => {
       playAudio();
       document.removeEventListener("click", handleUserInteraction);
-      document.removeEventListener("keydown", handleUserInteraction);
     };
 
     document.addEventListener("click", handleUserInteraction);
-    document.addEventListener("keydown", handleUserInteraction);
 
     return () => {
       document.removeEventListener("click", handleUserInteraction);
-      document.removeEventListener("keydown", handleUserInteraction);
     };
   }, []);
 
   return (
     <div
       ref={navContainerRef}
-      className="fixed inset-x-0 top-4 z-50 h-16 border-none transition-all duration-700 sm:inset-x-6 bg-light-primary dark:bg-dark-primary"
+      className="fixed inset-x-0 top-4 z-50 h-[100px] border-none transition-all duration-700 sm:inset-x-6 bg-light-primary dark:bg-dark-primary rounded-lg shadow-lg"
     >
       <audio ref={clickAudioRef} src="/audios/mouse-click.wav" preload="auto" />
       <audio ref={linkAudioRef} src="/audios/modern-tech.wav" preload="auto" />
-      <header className="absolute top-1/2 w-full -translate-y-1/2">
-        <nav className="flex items-center justify-between size-full p-4">
-          <div className="flex items-center gap-0">
+      <header className="relative w-full">
+        <nav className="flex items-center justify-between px-3 ">
+          <div className="flex items-center gap-2">
             <img
               src={
                 isDark
@@ -126,7 +140,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
                   : "/assets/favicon-dark.svg"
               }
               alt="logo"
-              className="w-14 h-14 cursor-pointer"
+              className="w-10 h-10 sm:w-14 sm:h-14 cursor-pointer"
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 toggleClickAudio();
@@ -142,28 +156,28 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
                 <img
                   src={isDark ? "/assets/sun.png" : "/assets/moon.png"}
                   alt="Toggle theme"
-                  className="w-8 h-8 transition-all duration-300 hover:scale-125"
+                  className=" w-6 h-6 sm:w-8 sm:h-8 transition-all duration-300 hover:scale-125"
                 />
               }
-              containerClass="mb-2.5 md:flex hidden items-center justify-center gap-1 outline-none border-none"
+              containerClass="mt-5 items-center justify-center gap-1 outline-none border-none"
             />
           </div>
-          <div className="flex items-center h-full special-font">
-            <div className="hidden md:block">
-              {navLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={`#${link}`}
-                  onClick={toggleLinkAudio}
-                  className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
-                >
-                  {link.name.toLowerCase()}
-                </a>
-              ))}
-            </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center h-full special-font">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={`#${link}`}
+                onClick={toggleLinkAudio}
+                className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
+              >
+                {link.name.toLowerCase()}
+              </a>
+            ))}
             <button
               onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5"
+              className="ml-6 flex items-center space-x-0.5"
             >
               <audio
                 ref={audioElementRef}
@@ -173,9 +187,59 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
               <AudioButton isPlaying={isAudioPlaying} />
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <div className={`hamburger-menu ${isMobileMenuOpen ? "open" : ""}`}>
+              <span
+                className={`h-0.5 w-6 bg-current block transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""}`}
+              ></span>
+              <span
+                className={`h-0.5 w-6 bg-current block mt-1.5 transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
+              ></span>
+              <span
+                className={`h-0.5 w-6 bg-current block mt-1.5 transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
+              ></span>
+            </div>
+          </button>
         </nav>
+
+        {/* Mobile Navigation Menu */}
+        <div
+          ref={mobileMenuRef}
+          className="md:hidden overflow-hidden bg-light-primary/90 dark:bg-dark-primary/90 backdrop-blur-md"
+        >
+          <div className="px-4 py-2 space-y-4">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={`#${link}`}
+                onClick={() => {
+                  toggleLinkAudio();
+                  toggleMobileMenu();
+                }}
+                className="block py-2 text-center text-lg font-medium text-neutral-800 dark:text-white hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
+              >
+                {link.name.toLowerCase()}
+              </a>
+            ))}
+            <div className="flex justify-center py-2">
+              <button
+                onClick={toggleAudioIndicator}
+                className="flex items-center space-x-0.5"
+              >
+                <AudioButton isPlaying={isAudioPlaying} />
+              </button>
+            </div>
+          </div>
+        </div>
       </header>
     </div>
   );
 };
+
 export default Navbar;
