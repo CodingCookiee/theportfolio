@@ -29,6 +29,20 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     setIsIndicatorActive(audioIndicatorEnabled);
   }, [audioEnabled, audioIndicatorEnabled]);
 
+  // Audio Control Effects
+  useEffect(() => {
+    [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
+      if (ref.current) {
+        if (isAudioPlaying) {
+          ref.current.volume = ref === audioElementRef ? 0.3 : 0.1;
+        } else {
+          ref.current.pause();
+          ref.current.currentTime = 0;
+        }
+      }
+    });
+  }, [isAudioPlaying]);
+
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
@@ -39,38 +53,45 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   };
 
   const toggleClickAudio = () => {
-    clickAudioRef.current.currentTime = 0;
-    clickAudioRef.current.volume = 0.1;
-    clickAudioRef.current.play().catch((error) => {
-      console.log("click audio playback failed:", error);
-    });
+    if (isAudioPlaying && clickAudioRef.current) {
+      clickAudioRef.current.currentTime = 0;
+      clickAudioRef.current.volume = 0.1;
+      clickAudioRef.current.play().catch((error) => {
+        console.log("click audio playback failed:", error);
+      });
+    }
   };
 
   const toggleLinkAudio = () => {
-    linkAudioRef.current.currentTime = 0;
-    linkAudioRef.current.volume = 0.1;
-    linkAudioRef.current.play().catch((error) => {
-      console.log("toggle audio playback failed:", error);
-    });
+    if (isAudioPlaying && linkAudioRef.current) {
+      linkAudioRef.current.currentTime = 0;
+      linkAudioRef.current.volume = 0.1;
+      linkAudioRef.current.play().catch((error) => {
+        console.log("toggle audio playback failed:", error);
+      });
+    }
   };
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
-    clickAudioRef.current.currentTime = 0;
-    clickAudioRef.current.play();
+    [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
+      if (ref.current) {
+        ref.current.pause();
+        ref.current.currentTime = 0;
+      }
+    });
   };
 
   useEffect(() => {
     if (isAudioPlaying) {
-      audioElementRef.current.volume = 0.3;
       audioElementRef.current.play();
     } else {
       audioElementRef.current.pause();
     }
   }, [isAudioPlaying]);
 
-  // Handle mobile menu animation
+  // Mobile menu animation
   useEffect(() => {
     gsap.to(mobileMenuRef.current, {
       height: isMobileMenuOpen ? "auto" : 0,
@@ -80,14 +101,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     });
   }, [isMobileMenuOpen]);
 
-  useEffect(() => {
-    if (isAudioPlaying) {
-      audioElementRef.current.play();
-    } else {
-      audioElementRef.current.pause();
-    }
-  }, [isAudioPlaying]);
-
+  // Navigation visibility
   useEffect(() => {
     if (currentScrollY === 0) {
       setIsNavVisible(true);
