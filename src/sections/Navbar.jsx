@@ -40,6 +40,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
   const toggleClickAudio = () => {
     clickAudioRef.current.currentTime = 0;
+    clickAudioRef.current.volume = 0.1;
     clickAudioRef.current.play().catch((error) => {
       console.log("click audio playback failed:", error);
     });
@@ -47,6 +48,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
   const toggleLinkAudio = () => {
     linkAudioRef.current.currentTime = 0;
+    linkAudioRef.current.volume = 0.1;
     linkAudioRef.current.play().catch((error) => {
       console.log("toggle audio playback failed:", error);
     });
@@ -58,6 +60,15 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     clickAudioRef.current.currentTime = 0;
     clickAudioRef.current.play();
   };
+
+  useEffect(() => {
+    if (isAudioPlaying) {
+      audioElementRef.current.volume = 0.3;
+      audioElementRef.current.play();
+    } else {
+      audioElementRef.current.pause();
+    }
+  }, [isAudioPlaying]);
 
   // Handle mobile menu animation
   useEffect(() => {
@@ -124,7 +135,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 toggleClickAudio();
-                window.location.href = "/";
+                window.location.href = "#Home";
               }}
             />
             <Button
