@@ -162,7 +162,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
             >
               <audio
                 ref={audioElementRef}
-                src="/audios/hero-animation.mp3"
+                src="/audios/background_music.mp3"
                 loop
               />
               <AudioButton isPlaying={isAudioPlaying} />
