@@ -34,7 +34,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
       if (ref.current) {
         if (isAudioPlaying) {
-          ref.current.volume = ref === audioElementRef ? 0.3 : 0.1;
+          ref.current.volume = ref === audioElementRef ? 0.5 : 0.2;
         } else {
           ref.current.pause();
           ref.current.currentTime = 0;
@@ -55,7 +55,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const toggleClickAudio = () => {
     if (isAudioPlaying && clickAudioRef.current) {
       clickAudioRef.current.currentTime = 0;
-      clickAudioRef.current.volume = 0.1;
+      clickAudioRef.current.volume = 0.2;
       clickAudioRef.current.play().catch((error) => {
         console.log("click audio playback failed:", error);
       });
@@ -65,7 +65,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const toggleLinkAudio = () => {
     if (isAudioPlaying && linkAudioRef.current) {
       linkAudioRef.current.currentTime = 0;
-      linkAudioRef.current.volume = 0.1;
+      linkAudioRef.current.volume = 0.2;
       linkAudioRef.current.play().catch((error) => {
         console.log("toggle audio playback failed:", error);
       });
