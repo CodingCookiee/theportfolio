@@ -20,7 +20,7 @@ export function Model(props) {
     ...materials.computer_mat,
     color: isDark ? '#f1f1f1' : '#484848', 
     metalness: 0.5,
-    roughness: 0.7,
+
   };
   
 
