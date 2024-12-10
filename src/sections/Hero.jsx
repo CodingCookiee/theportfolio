@@ -76,7 +76,7 @@ const Hero = () => {
           <Button
             name="Let's work together"
             isBeam
-            containerClass="sm:w-fit w-full sm:min-w-96"
+            containerClass="sm:w-fit w-full sm:min-w-96 "
           />
         </a>
       </div>
