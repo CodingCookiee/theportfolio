@@ -61,7 +61,6 @@ const App = () => {
             audioEnabled={audioEnabled}
             audioIndicatorEnabled={audioIndicatorEnabled}
           />
-          <section className="h-screen"></section>
           <Hero />
           <Experience />
           <Projects />

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
-import Button from "../utils/Button";
+import Button from "../utils/CustomButton";
 import { useTheme } from "../utils/ThemeContext";
 import { navLinks } from "../constants/index.js";
 import AudioButton from "../utils/AudioButton";
@@ -34,7 +34,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
       if (ref.current) {
         if (isAudioPlaying) {
-          ref.current.volume = ref === audioElementRef ? 0.5 : 0.2;
+          ref.current.volume = ref === audioElementRef ? 0.7 : 0.2;
         } else {
           ref.current.pause();
           ref.current.currentTime = 0;
@@ -165,7 +165,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
                   className=" w-6 h-6 sm:w-8 sm:h-8 transition-all duration-300 hover:scale-125"
                 />
               }
-              containerClass="mt-5 items-center justify-center gap-1 outline-none border-none"
+              containerClass="mt-6 items-center justify-center gap-1 outline-none border-none"
             />
           </div>
 
