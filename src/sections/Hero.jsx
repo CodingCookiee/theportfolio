@@ -13,7 +13,7 @@ import Target from "../components/Target.jsx";
 import CanvasLoader from "../components/Loading.jsx";
 import HeroCamera from "../components/HeroCamera.jsx";
 import { calculateSizes } from "../constants/index.js";
-import { HackerRoom } from "../components/Model.jsx";
+import { Model } from "../components/Model.jsx";
 
 const Hero = () => {
   const { isDark } = useTheme();
@@ -51,11 +51,11 @@ const Hero = () => {
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
 
             <HeroCamera isMobile={isMobile}>
-              <HackerRoom
-                scale={sizes.deskScale}
-                position={sizes.deskPosition}
-                rotation={[0.1, -Math.PI, 0]}
-              />
+            <Model
+  scale={sizes.deskScale}
+  position={sizes.deskPosition}
+  rotation={[0.1, -Math.PI, 0]}
+/>
             </HeroCamera>
 
             <group>
