@@ -34,7 +34,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
       if (ref.current) {
         if (isAudioPlaying) {
-          ref.current.volume = ref === audioElementRef ? 0.7 : 0.2;
+          ref.current.volume = ref === audioElementRef ? 0.5 : 0.2;
         } else {
           ref.current.pause();
           ref.current.currentTime = 0;

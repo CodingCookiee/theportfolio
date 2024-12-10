@@ -183,6 +183,12 @@ body {
   .btn-ping_dot {
     @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
   }
+ 
+  .btn.no-hover:hover {
+   
+      @apply  hover:bg-neutral-800 dark:hover:bg-white dark:hover:text-neutral-800 transition-colors duration-300;
+  }
+  
 
   /* hero section */
   .hero_tag {

@@ -1,6 +1,6 @@
-const Button = ({ name, isBeam = false, containerClass }) => {
+const Button = ({ name, isBeam = false, containerClass, noHover = false }) => {
   return (
-    <button className={`btn ${containerClass}`}>
+    <button className={`btn ${containerClass} ${noHover ? 'no-hover' : ''}`}>
       {isBeam && (
         <span className="relative flex h-3 w-3">
           <span className="btn-ping"></span>

@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import loadingAnimation from "/src/loading.json";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
+import About from './sections/About'
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
@@ -62,6 +63,7 @@ const App = () => {
             audioIndicatorEnabled={audioIndicatorEnabled}
           />
           <Hero />
+          <About/>
           <Experience />
           <Projects />
           <Skills />
