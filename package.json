@@ -11,6 +11,7 @@
     "format": "prettier --write \"./**/*.{js,jsx,css,json,html}\""
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.119.0",
     "@react-three/fiber": "^8.17.10",
     "clsx": "^2.1.1",
