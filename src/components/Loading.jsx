@@ -1,7 +1,10 @@
 import { Html, useProgress } from "@react-three/drei";
+import { useTheme } from "../utils/ThemeContext";
 
 const CanvasLoader = () => {
   const { progress } = useProgress();
+  const { isDark } = useTheme();
+  
   return (
     <Html
       as="div"
@@ -17,7 +20,7 @@ const CanvasLoader = () => {
       <p
         style={{
           fontSize: 14,
-          color: "#F1F1F1",
+          color: isDark ? "#FFFFFF" : "#000000",
           fontWeight: 800,
           marginTop: 40,
         }}

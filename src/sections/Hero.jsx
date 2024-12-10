@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 import { PerspectiveCamera } from "@react-three/drei";
 
+
 import Cube from "../components/Cube.jsx";
 import Rings from "../components/Rings.jsx";
 import ReactLogo from "../components/ReactLogo.jsx";
@@ -23,6 +24,8 @@ const Hero = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
+
 
   return (
     <section className="mt-5 min-h-screen w-full flex flex-col relative " id="home">

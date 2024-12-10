@@ -23,9 +23,6 @@ const CustomCursor = ({ onFirstClick }) => {
         "LABEL",
         "AUDIO",
         "VIDEO",
-        "IFRAME",
-        "CANVAS",
-        "EMBED",
         "IMG",
         "SVG",
       ];
