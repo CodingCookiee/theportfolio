@@ -95,7 +95,7 @@ const About = () => {
             <div className="space-y-2">
               <p className="grid-subtext text-center text-light-text dark:text-dark-text">Contact me</p>
               <div className="copy-container" onClick={handleCopy}>
-                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
+                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" className={`${isDark ? '' : 'invert'}`} />
                 <p className="lg:text-2xl md:text-xl font-medium text-light-text dark:text-dark-text">
                   adrian@jsmastery.pro
                 </p>
