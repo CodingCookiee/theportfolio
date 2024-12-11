@@ -37,7 +37,7 @@ const About = () => {
 
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
-            <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain shadow-lg" />
+            <img src="assets/Illustration.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain shadow-lg" />
             <div>
               <p className="grid-headtext text-light-text dark:text-dark-text">Tech Stack</p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
