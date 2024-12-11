@@ -24,7 +24,7 @@ const Footer = () => {
       </div>
 
       <p className="text-light-text/60 dark:text-dark-text/60 transition-colors duration-300">
-        © 2024 Adrian Hajdin. All rights reserved.
+        © 2024 Raza Awan. All rights reserved.
       </p>
     </footer>
   );

@@ -61,7 +61,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full pb-24" id="contact">
+    <section className="relative min-h-screen w-full mb-16" id="contact">
       {alert.show && <Alert {...alert} />}
 
 
