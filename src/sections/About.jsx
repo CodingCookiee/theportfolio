@@ -8,7 +8,7 @@ const About = () => {
   const { isDark } = useTheme();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(' adrian@jsmastery.pro');
+    navigator.clipboard.writeText(' razaawanpersonal@gmail.com');
     setHasCopied(true);
 
     setTimeout(() => {
@@ -23,9 +23,9 @@ const About = () => {
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
             <img src="assets/grid1.png" alt="grid-1" className="shadow-lg rounded-md w-full sm:h-[276px] h-fit object-contain" />
             <div>
-              <p className="grid-headtext text-light-text dark:text-dark-text">Hi, I'm Adrian Hajdin</p>
+              <p className="grid-headtext text-light-text dark:text-dark-text">Hi, I'm Raza Awan</p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
-                With 12 years of experience, I have honed my skills in both frontend and backend dev, creating dynamic
+                I have honed my skills in both frontend and backend development, creating dynamic
                 and responsive websites.
               </p>
             </div>
@@ -57,15 +57,15 @@ const About = () => {
                 showGraticules
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                 bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                labelsData={[{ lat: 40, lng: -100, text: 'Rjieka, Croatia', color: isDark ? '#FFFFFF' : '#1A1A1A', size: 15 }]}
+                labelsData={[{ lat: 40, lng: -100, text: 'Rawalpindi, Pakistan', color: isDark ? '#FFFFFF' : '#1A1A1A', size: 15 }]}
               />
             </div>
             <div>
               <p className="grid-headtext text-light-text dark:text-dark-text">
-                I'm very flexible with time zone communications & locations
+                I'm  flexible with different time zone communications & locations
               </p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
-                I&apos;m based in Rjieka, Croatia and open to remote work worldwide.
+                I&apos;m based in Rawalpindi, Pakistan and open to remote work worldwide.
               </p>
               <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
             </div>
@@ -76,10 +76,9 @@ const About = () => {
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
             <img src="assets/grid3.png" alt="grid-3" className=" rounded-md shadow-lg w-full sm:h-[266px] h-fit object-contain" />
             <div>
-              <p className="grid-headtext text-light-text dark:text-dark-text">My Passion for Coding</p>
+              <p className="grid-headtext text-light-text dark:text-dark-text">Creativity and Minimalism</p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
-                I love solving problems and building things through code. Programming isn&apos;t just my profession—it&apos;s my passion. 
-                I enjoy exploring new technologies, and enhancing my skills.
+                I priortize creativity and minimalism . I enjoy exploring designing and developing websites with exquisite and minmalistic design..
               </p>
             </div>
           </div>
@@ -97,7 +96,7 @@ const About = () => {
               <div className="copy-container" onClick={handleCopy}>
                 <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" className={`${isDark ? '' : 'invert'}`} />
                 <p className="lg:text-2xl md:text-xl font-medium text-light-text dark:text-dark-text">
-                  adrian@jsmastery.pro
+                razaawanpersonal@gmail.com
                 </p>
               </div>
             </div>
