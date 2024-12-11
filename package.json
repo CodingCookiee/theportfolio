@@ -11,10 +11,12 @@
     "format": "prettier --write \"./**/*.{js,jsx,css,json,html}\""
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.119.0",
     "@react-three/fiber": "^8.17.10",
     "clsx": "^2.1.1",
+    "emailjs": "^4.0.3",
     "gsap": "^3.12.5",
     "leva": "^0.9.35",
     "lottie-react": "^2.4.0",
