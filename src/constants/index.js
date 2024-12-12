@@ -23,13 +23,13 @@ export const navLinks = [
 
 export const myProjects = [
   {
-    title: "Podcastr - AI Podcast Platform",
-    desc: "Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.",
+    title: "PANDA AI - AI Chatbot",
+    desc: "Panda AI is a Web based AI chatbot powered with Natural Language Processing(NLP).It is Smart, reliable,  and capable of generating precise and creative answers. ",
     subdesc:
-      "Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.",
-    href: "https://www.youtube.com/watch?v=zfAb95tJvZQ",
+      "Built as a unique Software-as-a-Service app with Reacts.js, Tailwind CSS, Node.js, Express and MongoDB, Panda AI is designed for optimal performance.",
+    href: "https://github.com/CodingCookiee/PANDA-AI",
     texture: "/textures/project/project1.mp4",
-    logo: "/assets/project-logo1.png",
+    logo: "/assets/projects/panda.svg",
     logoStyle: {
       backgroundColor: "#2A1816",
       border: "0.2px solid #36201D",
@@ -49,24 +49,32 @@ export const myProjects = [
       },
       {
         id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
+        name: "Nodejs",
+        path: "/assets/tech/nodejs.png",
       },
-      {
+       {
         id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
+        name: "Express",
+        path: "/assets/tech/express.png",
       },
+     
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/tech/mongo.png",
+      },
+
+
     ],
   },
   {
-    title: "LiveDoc - Real-Time Google Docs Clone",
-    desc: "LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.",
+    title: "PandaPlay - Movies Management Platform",
+    desc: "Effortlessly manage, explore, and stream your favorite movies—all in one sleek, intuitive platform!",
     subdesc:
-      "With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.",
-    href: "https://www.youtube.com/watch?v=y5vE8y_f_OM",
+      "PandaPlay is a modern movies management platform built with the MERN stack and styled with TailwindCSS. Effortlessly organize, explore, and stream your favorite films with a sleek, responsive interface designed for seamless user experience.",
+    href: "https://github.com/CodingCookiee/moviesapp",
     texture: "/textures/project/project2.mp4",
-    logo: "/assets/project-logo2.png",
+    logo: "/assets/projects/Movie.png",
     logoStyle: {
       backgroundColor: "#13202F",
       border: "0.2px solid #17293E",
@@ -86,24 +94,30 @@ export const myProjects = [
       },
       {
         id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
+        name: "Nodejs",
+        path: "/assets/tech/nodejs.png",
       },
       {
         id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
+        name: "Express",
+        path: "/assets/tech/express.png",
+      },
+     
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/tech/mongo.png",
       },
     ],
   },
   {
-    title: "CarePulse - Health Management System",
-    desc: "An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.",
+    title: "FiverrServices - Fiverr Clone",
+    desc: "FiverrServices is a dynamic freelance marketplace platform inspired by Fiverr, designed for seamless gig posting, and browsing. The platform is built for scalability and user-friendly interactions.",
     subdesc:
-      "With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.",
-    href: "https://www.youtube.com/watch?v=lEflo_sc82g",
+      " A feature-rich Fiverr clone for connecting freelancers and clients with ease.",
+    href: "https://github.com/CodingCookiee/FiverrClone",
     texture: "/textures/project/project3.mp4",
-    logo: "/assets/project-logo3.png",
+    logo: "/assets/projects/fiverr.png",
     logoStyle: {
       backgroundColor: "#60f5a1",
       background:
@@ -125,24 +139,30 @@ export const myProjects = [
       },
       {
         id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
+        name: "Nodejs",
+        path: "/assets/tech/nodejs.png",
       },
       {
         id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
+        name: "Express",
+        path: "/assets/tech/express.png",
+      },
+     
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/tech/mongo.png",
       },
     ],
   },
   {
-    title: "Horizon - Online Banking Platform",
-    desc: "Horizon is a comprehensive online banking platform that offers users a centralized finance management dashboard. It allows users to connect multiple bank accounts, monitor real-time transactions, and seamlessly transfer money to other users.",
+    title: "ZentryCentral - Explore Gaming World",
+    desc: "ZentryCentral offers an immersive gateway to the gaming world, featuring dynamic scroll-based animations, stunning clip-path transitions, interactive 3D hover effects, and seamless video transitions. With smooth UI/UX and full responsiveness, enjoy an engaging and intuitive experience across all devices",
     subdesc:
-      "Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.",
-    href: "https://www.youtube.com/watch?v=PuOVqP_cjkE",
+      "ZentryCentral: Dive into the gaming world with dynamic animations, 3D effects, and a seamless, responsive experience.",
+    href: "https://github.com/CodingCookiee/ZentryCentral",
     texture: "/textures/project/project4.mp4",
-    logo: "/assets/project-logo4.png",
+    logo: "/assets/projects/favicon.png",
     logoStyle: {
       backgroundColor: "#0E1F38",
       border: "0.2px solid #0E2D58",
@@ -162,53 +182,14 @@ export const myProjects = [
       },
       {
         id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
+        name: "GSAP",
+        path: "/assets/tech/gsap.png",
       },
-      {
-        id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
-      },
+  
+    
     ],
   },
-  {
-    title: "Imaginify - AI Photo Manipulation App",
-    desc: "Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.",
-    subdesc:
-      "Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.",
-    href: "https://www.youtube.com/watch?v=Ahwoks_dawU",
-    texture: "/textures/project/project5.mp4",
-    logo: "/assets/project-logo5.png",
-    logoStyle: {
-      backgroundColor: "#1C1A43",
-      border: "0.2px solid #252262",
-      boxShadow: "0px 0px 60px 0px #635BFF4D",
-    },
-    spotlight: "/assets/spotlight5.png",
-    tags: [
-      {
-        id: 1,
-        name: "React.js",
-        path: "/assets/react.svg",
-      },
-      {
-        id: 2,
-        name: "TailwindCSS",
-        path: "assets/tailwindcss.png",
-      },
-      {
-        id: 3,
-        name: "TypeScript",
-        path: "/assets/typescript.png",
-      },
-      {
-        id: 4,
-        name: "Framer Motion",
-        path: "/assets/framer.png",
-      },
-    ],
-  },
+ 
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -255,3 +236,5 @@ export const workExperiences = [
     animation: "salute",
   },
 ];
+
+
