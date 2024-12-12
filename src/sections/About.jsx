@@ -37,7 +37,7 @@ const About = () => {
 
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
-            <img src="assets/Illustration.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain shadow-lg" />
+            <img src={isDark ? 'assets/Illustration-dark.png' : 'assets/Illustration-light.png'} alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain shadow-lg" />
             <div>
               <p className="grid-headtext text-light-text dark:text-dark-text">Tech Stack</p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
@@ -77,7 +77,7 @@ const About = () => {
 
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
-            <img src="assets/grid3.png" alt="grid-3" className=" rounded-md shadow-lg w-full sm:h-[266px] h-fit object-contain" />
+            <img src={isDark ? "assets/grid3.png" : "assets/grid-code.png"} alt="grid-3" className=" rounded-md shadow-lg w-full sm:h-[266px] h-fit object-contain" />
             <div>
               <p className="grid-headtext text-light-text dark:text-dark-text">Creativity and Minimalism</p>
               <p className="grid-subtext text-light-text dark:text-dark-text">
@@ -90,7 +90,7 @@ const About = () => {
         <div className="xl:col-span-1 xl:row-span-2">
           <div className="grid-container bg-light-secondary dark:bg-dark-secondary">
             <img
-              src="assets/grid4.png"
+              src={isDark ? 'assets/grid4.png' : "assets/grid-contact.png"}
               alt="grid-4"
               className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
             />
