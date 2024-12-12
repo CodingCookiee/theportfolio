@@ -24,11 +24,11 @@ export const navLinks = [
 export const myProjects = [
   {
     title: "PANDA AI - AI Chatbot",
-    desc: "Panda AI is a Web based AI chatbot powered with Natural Language Processing(NLP).It is Smart, reliable,  and capable of generating precise and creative answers. ",
+    desc: "PANDA AI is an intelligent chatbot platform built with the MERN stack and styled with TailwindCSS. Designed for fast, responsive, and engaging conversations, PANDA AI delivers smooth interactions, powerful AI responses, and a sleek, modern interface. ",
     subdesc:
-      "Built as a unique Software-as-a-Service app with Reacts.js, Tailwind CSS, Node.js, Express and MongoDB, Panda AI is designed for optimal performance.",
+      "A smart, responsive chatbot built with the MERN stack and TailwindCSS for seamless AI conversations.",
     href: "https://github.com/CodingCookiee/PANDA-AI",
-    texture: "/textures/project/project1.mp4",
+    texture: "/textures/projects/pandaai.mp4",
     logo: "/assets/projects/panda.svg",
     logoStyle: {
       backgroundColor: "#2A1816",
@@ -69,11 +69,10 @@ export const myProjects = [
   },
   {
     title: "PandaPlay - Movies Management Platform",
-    desc: "Effortlessly manage, explore, and stream your favorite movies—all in one sleek, intuitive platform!",
-    subdesc:
-      "PandaPlay is a modern movies management platform built with the MERN stack and styled with TailwindCSS. Effortlessly organize, explore, and stream your favorite films with a sleek, responsive interface designed for seamless user experience.",
+    desc: "PandaPlay is a modern movies management platform built with the MERN stack and styled with TailwindCSS. Effortlessly organize, explore, and stream your favorite films with a sleek, responsive interface designed for seamless user experience.",
+    subdesc:"Effortlessly manage, explore, and stream your favorite movies—all in one sleek, intuitive platform!",
     href: "https://github.com/CodingCookiee/moviesapp",
-    texture: "/textures/project/project2.mp4",
+    texture: "/textures/projects/pandaplay.mp4",
     logo: "/assets/projects/Movie.png",
     logoStyle: {
       backgroundColor: "#13202F",
@@ -116,7 +115,7 @@ export const myProjects = [
     subdesc:
       " A feature-rich Fiverr clone for connecting freelancers and clients with ease.",
     href: "https://github.com/CodingCookiee/FiverrClone",
-    texture: "/textures/project/project3.mp4",
+    texture: "/textures/projects/fiverr.mp4",
     logo: "/assets/projects/fiverr.png",
     logoStyle: {
       backgroundColor: "#60f5a1",
@@ -159,9 +158,9 @@ export const myProjects = [
     title: "ZentryCentral - Explore Gaming World",
     desc: "ZentryCentral offers an immersive gateway to the gaming world, featuring dynamic scroll-based animations, stunning clip-path transitions, interactive 3D hover effects, and seamless video transitions. With smooth UI/UX and full responsiveness, enjoy an engaging and intuitive experience across all devices",
     subdesc:
-      "ZentryCentral: Dive into the gaming world with dynamic animations, 3D effects, and a seamless, responsive experience.",
+      "Dive into the gaming world with dynamic animations, 3D effects, and a seamless, responsive experience.",
     href: "https://github.com/CodingCookiee/ZentryCentral",
-    texture: "/textures/project/project4.mp4",
+    texture: "/textures/projects/Zentry.mp4",
     logo: "/assets/projects/favicon.png",
     logoStyle: {
       backgroundColor: "#0E1F38",

@@ -11,6 +11,8 @@ import DemoComputer from '../components/DemoComputer.jsx';
 
 const projectCount = myProjects.length;
 
+console.log(myProjects)
+
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const { isDark } = useTheme();
@@ -61,14 +63,23 @@ const Projects = () => {
               ))}
             </div>
 
-            <a
-              className={`flex items-center gap-2 cursor-pointer ${isDark ? 'text-dark-text' : 'text-light-text'}`}
-              href={currentProject.href}
-              target="_blank"
-              rel="noreferrer">
-              <p>Check Live Site</p>
-              <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
-            </a>
+           
+<a
+  className={`flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity ${
+    isDark ? 'text-dark-text' : 'text-light-text'
+  }`}
+  href={currentProject.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={(e) => {
+    e.preventDefault();
+    window.open(currentProject.href, '_blank');
+  }}
+>
+  <p>Check Live Site</p>
+  <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
+</a>
+
           </div>
 
           <div className="flex justify-between items-center mt-7">
