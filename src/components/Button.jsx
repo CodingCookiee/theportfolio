@@ -15,3 +15,5 @@ const Button = ({ name, isBeam = false, containerClass, noHover = false, onClick
     </button>
   );
 };
+
+export default Button;

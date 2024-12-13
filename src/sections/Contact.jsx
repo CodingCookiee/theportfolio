@@ -63,17 +63,19 @@ const Contact = () => {
   return (
     <section className="relative min-h-screen w-full mb-16" id="contact">
       {alert.show && <Alert {...alert} />}
+      <div className=''>
+          <h3 className="head-text text-center text-light-text dark:text-dark-text transition-colors duration-300 special-font"> <b>Contact Me</b> </h3>
+          </div>
 
 
-      <div className="relative z-10 c-space flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-3xl mx-auto bg-light-primary/90 dark:bg-dark-secondary/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
-          <h3 className="head-text text-light-text dark:text-dark-text transition-colors duration-300">Let's talk</h3>
-          <p className="text-lg text-light-text/80 dark:text-dark-text/80 mt-3 transition-colors duration-300">
+      <div className="relative -mt-8 z-10 c-space flex items-center justify-center min-h-screen">
+        <div className="w-full max-w-3xl bg-light-primary/90 dark:bg-dark-secondary/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+          <p className="text-center text-lg text-light-text/80 dark:text-dark-text/80 mt-3 transition-colors duration-300">
             Whether you're looking to build a new website, improve your existing platform, or bring a unique project to
             life, I'm here to help.
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-8 flex flex-col space-y-7">
             <label className="space-y-3">
               <span className="field-label text-light-text dark:text-dark-text transition-colors duration-300">Full Name</span>
               <input

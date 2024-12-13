@@ -20,8 +20,8 @@ const About = () => {
 
   return (
     <section className="c-space my-20" id="about">
-       <p className="head-text mb-10 text-light-text dark:text-dark-text transition-colors duration-300">
-         About Me
+       <p className="head-text special-font text-center mb-10 text-light-text dark:text-dark-text transition-colors duration-300">
+        <b>About Me</b>
         </p> 
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 xl:row-span-3">

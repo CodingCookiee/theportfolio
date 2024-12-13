@@ -23,15 +23,16 @@ export const navLinks = [
     href: "#work",
   },
   {
+    id:"skills",
+    name:"Skills",
+    href:"#skills",
+  },
+  {
     id: "contact",
     name: "Contact",
     href: "#contact",
   },
-  {
-    id:"skills",
-    name:"Skills",
-    href:"#skills"
-  }
+
 
 ];
 

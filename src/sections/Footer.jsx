@@ -6,7 +6,7 @@ const Footer = () => {
   const { isDark } = useTheme();
   
   return (
-    <footer className="w-full bg-light-primary dark:bg-dark-primary c-space py-4 border-t border-light-text/10 dark:border-dark-text/10 flex justify-between items-center flex-wrap gap-5 transition-colors duration-300">
+    <footer className="w-full -mt-5 bg-light-primary dark:bg-dark-primary c-space py-4 border-t border-light-text/10 dark:border-dark-text/10 flex justify-between items-center flex-wrap gap-5 transition-colors duration-300">
       <div className="text-light-text/60 dark:text-dark-text/60 flex gap-2 transition-colors duration-300">
         <p>Terms & Conditions</p>
         <p>|</p>

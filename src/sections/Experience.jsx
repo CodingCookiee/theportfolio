@@ -15,8 +15,8 @@ const Experiences = () => {
   return (
     <section className="c-space my-20" >
       <div className="w-full">
-        <p className="head-text text-light-text dark:text-dark-text transition-colors duration-300">
-          My Work Experience
+        <p className="head-text text-center special-font text-light-text dark:text-dark-text transition-colors duration-300">
+          <b>My Work Experience</b>
         </p>
 
         <div className="work-container">

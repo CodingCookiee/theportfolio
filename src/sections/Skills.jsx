@@ -94,10 +94,10 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="head-text text-light-text dark:text-dark-text transition-colors duration-300">
-            Technical Proficiency
+          <h2 className="head-text  special-font text-light-text dark:text-dark-text transition-colors duration-300">
+           <b> Technical Proficiency </b>
           </h2>
-          <p className="mt-4 text-lg text-light-text/60 dark:text-dark-text/60 transition-colors duration-300">
+          <p className="mt-4  text-lg text-light-text/60 dark:text-dark-text/60 transition-colors duration-300">
             Crafting digital experiences with cutting-edge technologies
           </p>
         </motion.div>
