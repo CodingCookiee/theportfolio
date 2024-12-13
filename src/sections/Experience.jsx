@@ -13,7 +13,7 @@ const Experiences = () => {
   const { isDark } = useTheme();
 
   return (
-    <section className="c-space my-20" id="work">
+    <section className="c-space my-20" >
       <div className="w-full">
         <p className="head-text text-light-text dark:text-dark-text transition-colors duration-300">
           My Work Experience

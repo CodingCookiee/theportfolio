@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Globe from 'react-globe.gl';
 import { useTheme } from '../utils/ThemeContext';
 import Button from '../components/Button.jsx';
+import { scrollToSection } from '../utils/Scroll';
+
 
 const About = () => {
   const [hasCopied, setHasCopied] = useState(false);
@@ -70,7 +72,12 @@ const About = () => {
               <p className="grid-subtext text-light-text dark:text-dark-text">
                 I&apos;m based in Rawalpindi, Pakistan and open to remote work worldwide.
               </p>
-              <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
+              <Button 
+  name="Contact Me" 
+  isBeam 
+  containerClass="w-full mt-10"
+  onClick={() => scrollToSection('contact')}
+/>
             </div>
           </div>
         </div>

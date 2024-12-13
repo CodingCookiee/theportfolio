@@ -6,6 +6,8 @@ import Button from "../utils/CustomButton";
 import { useTheme } from "../utils/ThemeContext";
 import { navLinks } from "../constants/index.js";
 import AudioButton from "../utils/AudioButton";
+import { scrollToSection } from '../utils/Scroll';
+
 
 const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const { isDark, setIsDark } = useTheme();
@@ -128,17 +130,10 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     );
   }, [isNavVisible]);
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     toggleLinkAudio();
-    const element = document.querySelector(href);
-    if (element) {
-      const offsetTop = element.offsetTop;
-      window.scrollTo({
-        top: offsetTop - 100,
-        behavior: 'smooth'
-      });
-    }
+    scrollToSection(sectionId);
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
@@ -187,11 +182,11 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center h-full special-font">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
   <a
-    key={index}
-    href={`#${link.name}`}
-    onClick={(e) => handleNavClick(e, `#${link.name}`)}
+    key={link.id}
+    href={`#${link.id}`}
+    onClick={(e) => handleNavClick(e, link.id)}
     className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
   >
     {link.name.toLowerCase()}
