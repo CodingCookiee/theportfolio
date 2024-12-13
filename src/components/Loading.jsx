@@ -14,6 +14,11 @@ const CanvasLoader = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        backgroundColor: isDark ? "rgba(0,0,0,0.8)" : "rgba(255,255,255,0.8)",
+        zIndex: 100
       }}
     >
       <span className="canvas-loader"></span>
@@ -25,7 +30,7 @@ const CanvasLoader = () => {
           marginTop: 40,
         }}
       >
-        {progress !== 0 ? `${progress.toFixed(2)}%` : "Loading..."}
+        {progress.toFixed(2)}%
       </p>
     </Html>
   );

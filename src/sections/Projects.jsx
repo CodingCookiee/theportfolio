@@ -4,6 +4,7 @@ import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import { useTheme } from '../utils/ThemeContext';
+import * as THREE from 'three';
 
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/Loading.jsx';
@@ -105,7 +106,24 @@ const Projects = () => {
                 </group>
               </Suspense>
             </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+            <OrbitControls 
+  maxPolarAngle={Math.PI / 2} 
+  enableZoom={false}
+  makeDefault
+  enableDamping={true}
+  dampingFactor={0.05}
+  mouseButtons={{
+    LEFT: THREE.MOUSE.ROTATE,
+    MIDDLE: THREE.MOUSE.DOLLY,
+    RIGHT: THREE.MOUSE.PAN
+  }}
+  touches={{
+    ONE: THREE.TOUCH.ROTATE,
+    TWO: THREE.TOUCH.DOLLY_PAN
+  }}
+  eventOptions={{ passive: true }}
+/>
+
           </Canvas>
         </div>
       </div>
