@@ -26,22 +26,22 @@ const Experiences = () => {
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
               <directionalLight position={[10, 10, 10]} intensity={isDark ? 0.8 : 1} />
               <OrbitControls 
-  enableZoom={false} 
-  maxPolarAngle={Math.PI / 2} 
-  makeDefault
-  enableDamping={true}
-  dampingFactor={0.05}
-  mouseButtons={{
-    LEFT: THREE.MOUSE.ROTATE,
-    MIDDLE: THREE.MOUSE.DOLLY,
-    RIGHT: THREE.MOUSE.PAN
-  }}
-  touches={{
-    ONE: THREE.TOUCH.ROTATE,
-    TWO: THREE.TOUCH.DOLLY_PAN
-  }}
-  eventOptions={{ passive: true }}
-/>
+    enableZoom={false} 
+    maxPolarAngle={Math.PI / 2} 
+    makeDefault
+    enableDamping={true}
+    dampingFactor={0.05}
+    rotateSpeed={0.5}
+    mouseButtons={{
+      LEFT: THREE.MOUSE.ROTATE
+    }}
+    touches={{
+      ONE: THREE.TOUCH.ROTATE
+    }}
+    enablePan={false}
+    listenToKeyEvents={window}
+    eventOptions={{ passive: true }}
+  />
 
 
               <Suspense fallback={<CanvasLoader />}>

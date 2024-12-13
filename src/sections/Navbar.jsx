@@ -128,6 +128,22 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     );
   }, [isNavVisible]);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    toggleLinkAudio();
+    const element = document.querySelector(href);
+    if (element) {
+      const offsetTop = element.offsetTop;
+      window.scrollTo({
+        top: offsetTop - 100,
+        behavior: 'smooth'
+      });
+    }
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <div
       ref={navContainerRef}
@@ -171,16 +187,16 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center h-full special-font">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={`#${link.name}`}
-                onClick={toggleLinkAudio}
-                className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
-              >
-                {link.name.toLowerCase()}
-              </a>
-            ))}
+          {navLinks.map((link, index) => (
+  <a
+    key={index}
+    href={`#${link.name}`}
+    onClick={(e) => handleNavClick(e, `#${link.name}`)}
+    className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
+  >
+    {link.name.toLowerCase()}
+  </a>
+))}
             <button
               onClick={toggleAudioIndicator}
               className="ml-6 flex items-center space-x-0.5 !outline-none !border-none"

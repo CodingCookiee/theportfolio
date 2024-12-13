@@ -1,9 +1,9 @@
 import { useGLTF, useTexture } from '@react-three/drei';
 import { useTheme } from "../utils/ThemeContext";
-import { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import * as THREE from 'three';
 
-export function Model(props) {
+export const Model = React.memo(({ ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { isDark } = useTheme();
   
@@ -61,7 +61,7 @@ export function Model(props) {
       <mesh geometry={nodes.table_table_mat_0_12.geometry} material={materials.key_mat} />
     </group>
   );
-}
+});
 
 useGLTF.preload('/models/model.glb');
 

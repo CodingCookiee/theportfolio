@@ -107,22 +107,22 @@ const Projects = () => {
               </Suspense>
             </Center>
             <OrbitControls 
-  maxPolarAngle={Math.PI / 2} 
-  enableZoom={false}
-  makeDefault
-  enableDamping={true}
-  dampingFactor={0.05}
-  mouseButtons={{
-    LEFT: THREE.MOUSE.ROTATE,
-    MIDDLE: THREE.MOUSE.DOLLY,
-    RIGHT: THREE.MOUSE.PAN
-  }}
-  touches={{
-    ONE: THREE.TOUCH.ROTATE,
-    TWO: THREE.TOUCH.DOLLY_PAN
-  }}
-  eventOptions={{ passive: true }}
-/>
+    maxPolarAngle={Math.PI / 2} 
+    enableZoom={false}
+    makeDefault
+    enableDamping={true}
+    dampingFactor={0.05}
+    rotateSpeed={0.5}
+    mouseButtons={{
+      LEFT: THREE.MOUSE.ROTATE
+    }}
+    touches={{
+      ONE: THREE.TOUCH.ROTATE
+    }}
+    enablePan={false}
+    listenToKeyEvents={window}
+    eventOptions={{ passive: true }}
+  />
 
           </Canvas>
         </div>

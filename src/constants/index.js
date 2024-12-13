@@ -8,26 +8,33 @@ import { MdDomainVerification } from "react-icons/md";
 
 export const navLinks = [
   {
-    id: 1,
+    id: "home",
     name: "Home",
     href: "#home",
   },
   {
-    id: 2,
+    id: "about",
     name: "About",
     href: "#about",
   },
   {
-    id: 3,
+    id: "work",
     name: "Work",
     href: "#work",
   },
   {
-    id: 4,
+    id: "contact",
     name: "Contact",
     href: "#contact",
   },
+  {
+    id:"skills",
+    name:"Skills",
+    href:"#skills"
+  }
+
 ];
+
 
 export const myProjects = [
   {

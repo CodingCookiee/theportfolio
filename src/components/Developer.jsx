@@ -1,23 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { useGraph } from '@react-three/fiber';
 import { useAnimations, useFBX, useGLTF } from '@react-three/drei';
 import { SkeletonUtils } from 'three-stdlib';
 
-const Developer = ({ animationName = 'idle', ...props }) => {
+const Developer = React.memo(({ animationName = 'idle', ...props }) => {
   const group = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentAction, setCurrentAction] = useState(null);
 
-  // Load model
   const { scene } = useGLTF('/models/animations/developer.glb', {
     onLoad: () => setIsLoaded(true)
   });
 
-  // Create memoized clone
-  const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
+  const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
 
-  // Load and memoize animations
-  const animations = React.useMemo(() => {
+  const animations = useMemo(() => {
     const idle = useFBX('/models/animations/idle.fbx');
     const salute = useFBX('/models/animations/salute.fbx');
     const clapping = useFBX('/models/animations/clapping.fbx');
@@ -40,8 +38,12 @@ const Developer = ({ animationName = 'idle', ...props }) => {
 
   useEffect(() => {
     if (actions && actions[animationName]) {
-      actions[animationName].reset().fadeIn(0.5).play();
-      return () => actions[animationName].fadeOut(0.5);
+      if (currentAction) {
+        currentAction.fadeOut(0.5);
+      }
+      const newAction = actions[animationName];
+      newAction.reset().fadeIn(0.5).play();
+      setCurrentAction(newAction);
     }
   }, [animationName, actions]);
 
@@ -112,7 +114,7 @@ const Developer = ({ animationName = 'idle', ...props }) => {
       />
     </group>
   );
-};
+});
 
 useGLTF.preload('/models/animations/developer.glb');
 
