@@ -72,7 +72,7 @@ const iconColors = {
   "Vs Code": "#007ACC",
   "Github": "#181717",
   "Git": "#F05032",
-  "Vite Js": "#646CFF",
+  "Vite": "#646CFF",
   "Webpack": "#8DD6F9",
   "RESTful": "#000000",
   "Jest": "#C21325",

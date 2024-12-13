@@ -283,7 +283,7 @@ export const skills = [
         SiStripe, SiDocker, SiAmazon, SiFigma, SiPostman, MdDomainVerification 
       ],
       names: [
-        "Vs Code", "Github", "Git", "Vite Js", "Webpack", "RESTful", "Jest",
+        "Vs Code", "Github", "Git", "Vite", "Webpack", "RESTful", "Jest",
         "Stripe", "Docker", "Aws", "Figma", "Postman", "Domain Integration"
       ]
     }

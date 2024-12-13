@@ -1,5 +1,4 @@
-import emailjs from '@emailjs/browser';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 
@@ -9,55 +8,43 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  useEffect(() => {
-    emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY);
-  }, []);
-
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: 'Raza Awan',
-          from_email: form.email,
-          to_email: 'razaawanpersonal@gmail.com',
-          message: form.message,
+    try {
+      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        () => {
-          setLoading(false);
-          showAlert({
-            show: true,
-            text: 'Thank you for your message 😃',
-            type: 'success',
-          });
+        body: JSON.stringify(form)
+      });
 
-          setTimeout(() => {
-            hideAlert();
-            setForm({ name: '', email: '', message: '' });
-          }, [3000]);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          showAlert({
-            show: true,
-            text: "I didn't receive your message 😢",
-            type: 'danger',
-          });
-        },
-      );
+      if (response.ok) {
+        showAlert({
+          show: true,
+          text: 'Thank you for your message 😃',
+          type: 'success',
+        });
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      showAlert({
+        show: true,
+        text: "Message not sent. Please try again 😢",
+        type: 'danger',
+      });
+    } finally {
+      setLoading(false);
+      setTimeout(hideAlert, 3000);
+    }
   };
 
   return (
