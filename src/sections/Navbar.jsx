@@ -185,10 +185,10 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
               onClick={toggleAudioIndicator}
               className="ml-6 flex items-center space-x-0.5 !outline-none !border-none"
             >
-              {/* undo it */}
+            
               <audio
                 ref={audioElementRef}
-                src="/audios/xyz.mp3"
+                src="/audios/background_music.mp3"
                 loop
               />
               <AudioButton isPlaying={isAudioPlaying} />

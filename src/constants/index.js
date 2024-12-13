@@ -1,3 +1,11 @@
+import { SiFreelancer,  SiGithub, SiGit, SiVite, SiWebpack, SiStripe, SiDocker, SiAmazon, SiFigma, SiPostman,  SiReact, SiTailwindcss,  SiHtml5, SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql,  SiJest } from "react-icons/si"
+import { TbApi, TbBrandThreejs, TbBrandVscode, TbBrandFirebase } from "react-icons/tb"
+import { MdDomainVerification } from "react-icons/md";
+
+
+
+
+
 export const navLinks = [
   {
     id: 1,
@@ -206,34 +214,70 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
 export const workExperiences = [
   {
     id: 1,
-    name: "Framer",
-    pos: "Lead Web Developer",
-    duration: "2022 - Present",
-    title:
-      "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: "/assets/framer.svg",
+    name: "Freelancing",
+    pos: "FullStack Web Developer",
+    duration: "2023 - Present",
+    title:"Freelancing serves as my gateway to real-world web development. I craft full-stack solutions, bringing ideas to life and delivering seamless user experiences for clients.",
+    icon: "/assets/freelancer.svg",
     animation: "victory",
   },
-  {
-    id: 2,
-    name: "Figma",
-    pos: "Web Developer",
-    duration: "2020 - 2022",
-    title:
-      "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: "/assets/figma.svg",
-    animation: "clapping",
-  },
-  {
-    id: 3,
-    name: "Notion",
-    pos: "Junior Web Developer",
-    duration: "2019 - 2020",
-    title:
-      "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: "/assets/notion.svg",
-    animation: "salute",
-  },
+
 ];
 
 
+export const skills = [
+  {
+    title: "Languages",
+    icon: "/assets/tech/programming.png",
+    iconBg: "#383E56",
+    points: {
+      images: [
+        SiHtml5, SiCss3, SiJavascript
+      ],
+      names: [
+        "HTML5", "CSS3", "JavaScript"
+      ]
+    }
+  },
+  {
+    title: "FrontEnd Libraries/Frameworks",
+    icon: "/assets/tech/frontend.png",
+    iconBg: "#f1f1f1",
+    points: {
+      images: [
+        SiReact, SiTailwindcss, TbBrandThreejs
+      ],
+      names: [
+        "React js", "Tailwind CSS", "Three Js"
+      ]
+    }
+  },
+  {
+    title: "BackEnd Libraries/Frameworks & Databases",
+    icon:  "/assets/tech/backend.png",
+    iconBg: "#383E56",
+    points: {
+      images: [
+        SiNodedotjs, SiExpress, SiMongodb, SiMysql, TbBrandFirebase
+      ],
+      names: [
+        "Node Js", "Express Js", "MongoDB", "Sql", "Firebase"
+      ]
+    }
+  },
+  {
+    title: "Dev Tools",
+    icon: "/assets/tech/dev_tools.png",
+    iconBg: "#f1f1f1",
+    points: {
+      images: [
+        TbBrandVscode, SiGithub, SiGit, SiVite, SiWebpack, TbApi, SiJest,
+        SiStripe, SiDocker, SiAmazon, SiFigma, SiPostman, MdDomainVerification 
+      ],
+      names: [
+        "Vs Code", "Github", "Git", "Vite Js", "Webpack", "RESTful", "Jest",
+        "Stripe", "Docker", "Aws", "Figma", "Postman", "Domain Integration"
+      ]
+    }
+  }
+];

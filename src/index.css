@@ -276,6 +276,25 @@ body {
     @apply w-2.5 h-2.5 object-contain invert brightness-0;
   }
 
+
+  /* Skills Section */
+  @layer utilities {
+    .skill-card-hover {
+      @apply hover:shadow-xl hover:shadow-light-accent/5 dark:hover:shadow-dark-accent/5 
+      transform hover:-translate-y-1 transition-all duration-300;
+    }
+    
+    .skill-icon-container {
+      @apply relative overflow-hidden rounded-lg 
+      before:absolute before:inset-0 
+      before:bg-gradient-to-r before:from-light-accent/20 before:to-transparent 
+      dark:before:from-dark-accent/20 
+      before:translate-x-[-100%] hover:before:translate-x-0 
+      before:transition-transform before:duration-300;
+    }
+  }
+  
+
   /*  footer */
   .social-icon {
     @apply w-12 h-12 rounded-full flex justify-center items-center ;

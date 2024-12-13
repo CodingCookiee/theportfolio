@@ -43,7 +43,12 @@ const Experiences = () => {
                   className="work-content_container hover:bg-light-primary/50 dark:hover:bg-dark-primary/50 transition-colors duration-300">
                   <div className="flex flex-col h-full justify-start items-center py-2">
                     <div className="work-content_logo bg-light-primary dark:bg-dark-primary transition-colors duration-300">
-                      <img className="w-full h-full" src={item.icon} alt="" />
+                    <img 
+                        className={`w-full h-full ml-1 ${isDark ? 'invert' : ''} transition-all duration-300`} 
+                        src={item.icon} 
+                        alt="" 
+                      />
+
                     </div>
                     <div className="work-content_bar bg-light-text/10 dark:bg-dark-text/10 group-hover:bg-light-text/20 dark:group-hover:bg-dark-text/20 transition-colors duration-300" />
                   </div>

@@ -11,8 +11,6 @@ import DemoComputer from '../components/DemoComputer.jsx';
 
 const projectCount = myProjects.length;
 
-console.log(myProjects)
-
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const { isDark } = useTheme();
