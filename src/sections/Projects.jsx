@@ -9,6 +9,7 @@ import * as THREE from "three";
 import { myProjects } from "../constants/index.js";
 import CanvasLoader from "../components/Loading.jsx";
 import DemoComputer from "../components/DemoComputer.jsx";
+import { CustomOrbitControls } from "../components/CustomOrbitControls";
 
 const projectCount = myProjects.length;
 
@@ -153,23 +154,7 @@ const Projects = () => {
                 </group>
               </Suspense>
             </Center>
-            <OrbitControls
-              maxPolarAngle={Math.PI / 2}
-              enableZoom={false}
-              makeDefault
-              enableDamping={true}
-              dampingFactor={0.05}
-              rotateSpeed={0.5}
-              mouseButtons={{
-                LEFT: THREE.MOUSE.ROTATE,
-              }}
-              touches={{
-                ONE: THREE.TOUCH.ROTATE,
-              }}
-              enablePan={false}
-              listenToKeyEvents={window}
-              eventOptions={{ passive: true }}
-            />
+            <CustomOrbitControls />
           </Canvas>
         </div>
       </div>

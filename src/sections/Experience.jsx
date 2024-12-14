@@ -7,6 +7,7 @@ import * as THREE from "three";
 import Developer from "../components/Developer.jsx";
 import CanvasLoader from "../components/Loading.jsx";
 import { workExperiences } from "../constants/index.js";
+import { CustomOrbitControls } from "../components/CustomOrbitControls";
 
 const Experiences = () => {
   const [animationName, setAnimationName] = useState("idle");
@@ -28,23 +29,7 @@ const Experiences = () => {
                 position={[10, 10, 10]}
                 intensity={isDark ? 0.8 : 1}
               />
-              <OrbitControls
-                enableZoom={false}
-                maxPolarAngle={Math.PI / 2}
-                makeDefault
-                enableDamping={true}
-                dampingFactor={0.05}
-                rotateSpeed={0.5}
-                mouseButtons={{
-                  LEFT: THREE.MOUSE.ROTATE,
-                }}
-                touches={{
-                  ONE: THREE.TOUCH.ROTATE,
-                }}
-                enablePan={false}
-                listenToKeyEvents={window}
-                eventOptions={{ passive: true }}
-              />
+              <CustomOrbitControls />
 
               <Suspense fallback={<CanvasLoader />}>
                 <Developer
