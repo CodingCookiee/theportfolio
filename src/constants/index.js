@@ -1,10 +1,32 @@
-import { SiFreelancer,  SiGithub, SiGit, SiVite, SiWebpack, SiStripe, SiDocker, SiAmazon, SiFigma, SiPostman,  SiReact, SiTailwindcss,  SiHtml5, SiCss3, SiJavascript, SiNodedotjs, SiExpress, SiMongodb, SiMysql,  SiJest } from "react-icons/si"
-import { TbApi, TbBrandThreejs, TbBrandVscode, TbBrandFirebase } from "react-icons/tb"
+import {
+  SiFreelancer,
+  SiGithub,
+  SiGit,
+  SiVite,
+  SiWebpack,
+  SiStripe,
+  SiDocker,
+  SiAmazon,
+  SiFigma,
+  SiPostman,
+  SiReact,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiJest,
+} from "react-icons/si";
+import {
+  TbApi,
+  TbBrandThreejs,
+  TbBrandVscode,
+  TbBrandFirebase,
+} from "react-icons/tb";
 import { MdDomainVerification } from "react-icons/md";
-
-
-
-
 
 export const navLinks = [
   {
@@ -23,19 +45,16 @@ export const navLinks = [
     href: "#work",
   },
   {
-    id:"skills",
-    name:"Skills",
-    href:"#skills",
+    id: "skills",
+    name: "Skills",
+    href: "#skills",
   },
   {
     id: "contact",
     name: "Contact",
     href: "#contact",
   },
-
-
 ];
-
 
 export const myProjects = [
   {
@@ -68,25 +87,24 @@ export const myProjects = [
         name: "Nodejs",
         path: "/assets/tech/nodejs.png",
       },
-       {
+      {
         id: 4,
         name: "Express",
         path: "/assets/tech/express.png",
       },
-     
+
       {
         id: 5,
         name: "MongoDB",
         path: "/assets/tech/mongo.png",
       },
-
-
     ],
   },
   {
     title: "PandaPlay - Movies Management Platform",
     desc: "PandaPlay is a modern movies management platform built with the MERN stack and styled with TailwindCSS. Effortlessly organize, explore, and stream your favorite films with a sleek, responsive interface designed for seamless user experience.",
-    subdesc:"Effortlessly manage, explore, and stream your favorite movies—all in one sleek, intuitive platform!",
+    subdesc:
+      "Effortlessly manage, explore, and stream your favorite movies—all in one sleek, intuitive platform!",
     href: "https://github.com/CodingCookiee/moviesapp",
     texture: "/textures/projects/pandaplay.mp4",
     logo: "/assets/projects/Movie.png",
@@ -117,7 +135,7 @@ export const myProjects = [
         name: "Express",
         path: "/assets/tech/express.png",
       },
-     
+
       {
         id: 5,
         name: "MongoDB",
@@ -162,7 +180,7 @@ export const myProjects = [
         name: "Express",
         path: "/assets/tech/express.png",
       },
-     
+
       {
         id: 5,
         name: "MongoDB",
@@ -200,24 +218,44 @@ export const myProjects = [
         name: "GSAP",
         path: "/assets/tech/gsap.png",
       },
-  
-    
     ],
   },
- 
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
   return {
     deskScale: isSmall ? 0.05 : isMobile ? 0.06 : 0.065,
     deskPosition: isMobile ? [0.5, -4.5, 0] : [0.25, -5.5, 0],
-    cubePosition: isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-    reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-    targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
+    cubePosition: isSmall
+      ? [4, -5, 0]
+      : isMobile
+        ? [5, -5, 0]
+        : isTablet
+          ? [5, -5, 0]
+          : [9, -5.5, 0],
+    reactLogoPosition: isSmall
+      ? [3, 4, 0]
+      : isMobile
+        ? [5, 4, 0]
+        : isTablet
+          ? [5, 4, 0]
+          : [12, 3, 0],
+    ringPosition: isSmall
+      ? [-5, 7, 0]
+      : isMobile
+        ? [-10, 10, 0]
+        : isTablet
+          ? [-12, 10, 0]
+          : [-24, 10, 0],
+    targetPosition: isSmall
+      ? [-5, -10, -10]
+      : isMobile
+        ? [-9, -10, -10]
+        : isTablet
+          ? [-11, -7, -10]
+          : [-13, -13, -10],
   };
 };
-
 
 export const workExperiences = [
   {
@@ -225,13 +263,12 @@ export const workExperiences = [
     name: "Freelancing",
     pos: "FullStack Web Developer",
     duration: "2023 - Present",
-    title:"Freelancing serves as my gateway to real-world web development. I craft full-stack solutions, bringing ideas to life and delivering seamless user experiences for clients.",
+    title:
+      "Freelancing serves as my gateway to real-world web development. I craft full-stack solutions, bringing ideas to life and delivering seamless user experiences for clients.",
     icon: "/assets/freelancer.svg",
     animation: "victory",
   },
-
 ];
-
 
 export const skills = [
   {
@@ -239,39 +276,27 @@ export const skills = [
     icon: "/assets/tech/programming.png",
     iconBg: "#383E56",
     points: {
-      images: [
-        SiHtml5, SiCss3, SiJavascript
-      ],
-      names: [
-        "HTML5", "CSS3", "JavaScript"
-      ]
-    }
+      images: [SiHtml5, SiCss3, SiJavascript],
+      names: ["HTML5", "CSS3", "JavaScript"],
+    },
   },
   {
     title: "FrontEnd Libraries/Frameworks",
     icon: "/assets/tech/frontend.png",
     iconBg: "#f1f1f1",
     points: {
-      images: [
-        SiReact, SiTailwindcss, TbBrandThreejs
-      ],
-      names: [
-        "React js", "Tailwind CSS", "Three Js"
-      ]
-    }
+      images: [SiReact, SiTailwindcss, TbBrandThreejs],
+      names: ["React js", "Tailwind CSS", "Three Js"],
+    },
   },
   {
     title: "BackEnd Libraries/Frameworks & Databases",
-    icon:  "/assets/tech/backend.png",
+    icon: "/assets/tech/backend.png",
     iconBg: "#383E56",
     points: {
-      images: [
-        SiNodedotjs, SiExpress, SiMongodb, SiMysql, TbBrandFirebase
-      ],
-      names: [
-        "Node Js", "Express Js", "MongoDB", "Sql", "Firebase"
-      ]
-    }
+      images: [SiNodedotjs, SiExpress, SiMongodb, SiMysql, TbBrandFirebase],
+      names: ["Node Js", "Express Js", "MongoDB", "Sql", "Firebase"],
+    },
   },
   {
     title: "Dev Tools",
@@ -279,13 +304,35 @@ export const skills = [
     iconBg: "#f1f1f1",
     points: {
       images: [
-        TbBrandVscode, SiGithub, SiGit, SiVite, SiWebpack, TbApi, SiJest,
-        SiStripe, SiDocker, SiAmazon, SiFigma, SiPostman, MdDomainVerification 
+        TbBrandVscode,
+        SiGithub,
+        SiGit,
+        SiVite,
+        SiWebpack,
+        TbApi,
+        SiJest,
+        SiStripe,
+        SiDocker,
+        SiAmazon,
+        SiFigma,
+        SiPostman,
+        MdDomainVerification,
       ],
       names: [
-        "Vs Code", "Github", "Git", "Vite", "Webpack", "RESTful", "Jest",
-        "Stripe", "Docker", "Aws", "Figma", "Postman", "Domain Integration"
-      ]
-    }
-  }
+        "Vs Code",
+        "Github",
+        "Git",
+        "Vite",
+        "Webpack",
+        "RESTful",
+        "Jest",
+        "Stripe",
+        "Docker",
+        "Aws",
+        "Figma",
+        "Postman",
+        "Domain Integration",
+      ],
+    },
+  },
 ];

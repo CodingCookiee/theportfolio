@@ -4,7 +4,7 @@ import { useTheme } from "../utils/ThemeContext";
 const CanvasLoader = () => {
   const { progress } = useProgress();
   const { isDark } = useTheme();
-  
+
   return (
     <Html
       as="div"
@@ -18,7 +18,7 @@ const CanvasLoader = () => {
         width: "100%",
         height: "100%",
         backgroundColor: isDark ? "rgba(0,0,0,0.8)" : "rgba(255,255,255,0.8)",
-        zIndex: 100
+        zIndex: 100,
       }}
     >
       <span className="canvas-loader"></span>

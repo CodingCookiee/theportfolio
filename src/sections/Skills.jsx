@@ -1,17 +1,17 @@
-import { motion } from 'framer-motion';
-import { useTheme } from '../utils/ThemeContext';
-import { skills } from '../constants';
+import { motion } from "framer-motion";
+import { useTheme } from "../utils/ThemeContext";
+import { skills } from "../constants";
 
 const SkillCard = ({ title, icon, points, iconColors }) => {
   const { isDark } = useTheme();
-  
+
   const getIconColor = (iconName) => {
     const invertedIcons = {
       "Three Js": true,
-      "Github": true,
+      Github: true,
       "Express Js": true,
-      "Aws": true,
-      "RESTful": true
+      Aws: true,
+      RESTful: true,
     };
 
     if (invertedIcons[iconName]) {
@@ -19,7 +19,7 @@ const SkillCard = ({ title, icon, points, iconColors }) => {
     }
     return iconColors[iconName];
   };
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,9 @@ const SkillCard = ({ title, icon, points, iconColors }) => {
         <div className="w-16 h-16 rounded-full flex items-center justify-center bg-light-primary dark:bg-dark-primary transition-colors duration-300">
           <img src={icon} alt={title} className="w-1/2 h-1/2 object-contain" />
         </div>
-        <h3 className="text-xl font-bold text-light-text dark:text-dark-text transition-colors duration-300">{title}</h3>
+        <h3 className="text-xl font-bold text-light-text dark:text-dark-text transition-colors duration-300">
+          {title}
+        </h3>
       </div>
 
       <div className="mt-8 grid grid-cols-3 gap-4">
@@ -42,8 +44,8 @@ const SkillCard = ({ title, icon, points, iconColors }) => {
             className="flex flex-col items-center gap-2 group"
           >
             <div className="w-12 h-12 rounded-lg bg-light-primary dark:bg-dark-primary flex items-center justify-center transition-all duration-300 group-hover:shadow-lg">
-              <Icon 
-                className="w-6 h-6 transition-colors duration-300" 
+              <Icon
+                className="w-6 h-6 transition-colors duration-300"
                 style={{ color: getIconColor(points.names[index]) }}
               />
             </div>
@@ -58,30 +60,30 @@ const SkillCard = ({ title, icon, points, iconColors }) => {
 };
 
 const iconColors = {
-  "HTML5": "#E34F26",
-  "CSS3": "#1572B6",
-  "JavaScript": "#F7DF1E",
+  HTML5: "#E34F26",
+  CSS3: "#1572B6",
+  JavaScript: "#F7DF1E",
   "React js": "#61DAFB",
   "Tailwind CSS": "#06B6D4",
   "Three Js": "#000000",
   "Node Js": "#339933",
   "Express Js": "#000000",
-  "MongoDB": "#47A248",
-  "Sql": "#4479A1",
-  "Firebase": "#FFCA28",
+  MongoDB: "#47A248",
+  Sql: "#4479A1",
+  Firebase: "#FFCA28",
   "Vs Code": "#007ACC",
-  "Github": "#181717",
-  "Git": "#F05032",
-  "Vite": "#646CFF",
-  "Webpack": "#8DD6F9",
-  "RESTful": "#000000",
-  "Jest": "#C21325",
-  "Stripe": "#008CDD",
-  "Docker": "#2496ED",
-  "Aws": "#232F3E",
-  "Figma": "#F24E1E",
-  "Postman": "#FF6C37",
-  "Domain Integration": "#4CAF50"
+  Github: "#181717",
+  Git: "#F05032",
+  Vite: "#646CFF",
+  Webpack: "#8DD6F9",
+  RESTful: "#000000",
+  Jest: "#C21325",
+  Stripe: "#008CDD",
+  Docker: "#2496ED",
+  Aws: "#232F3E",
+  Figma: "#F24E1E",
+  Postman: "#FF6C37",
+  "Domain Integration": "#4CAF50",
 };
 
 const Skills = () => {
@@ -95,7 +97,7 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="head-text  special-font text-light-text dark:text-dark-text transition-colors duration-300">
-           <b> Technical Proficiency </b>
+            <b> Technical Proficiency </b>
           </h2>
           <p className="mt-4  text-lg text-light-text/60 dark:text-dark-text/60 transition-colors duration-300">
             Crafting digital experiences with cutting-edge technologies

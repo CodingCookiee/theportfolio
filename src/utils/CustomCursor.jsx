@@ -6,20 +6,31 @@ const CustomCursor = React.memo(({ onFirstClick }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIshovering] = useState(false);
   const [showSplash, setShowSplash] = useState(true);
-  
+
   const updateCursor = useCallback((e) => {
     setPosition({ x: e.clientX, y: e.clientY });
   }, []);
 
   const handleMouseOver = useCallback((e) => {
     const interactiveElements = [
-      "A", "BUTTON", "INPUT", "SELECT", "TEXTAREA",
-      "OPTION", "LABEL", "AUDIO", "VIDEO", "IMG", "SVG"
+      "A",
+      "BUTTON",
+      "INPUT",
+      "SELECT",
+      "TEXTAREA",
+      "OPTION",
+      "LABEL",
+      "AUDIO",
+      "VIDEO",
+      "IMG",
+      "SVG",
     ];
-    
-    if (interactiveElements.includes(e.target.tagName) ||
-        e.target.classList.contains("interactive") ||
-        e.target.role === "button") {
+
+    if (
+      interactiveElements.includes(e.target.tagName) ||
+      e.target.classList.contains("interactive") ||
+      e.target.role === "button"
+    ) {
       setIshovering(true);
     }
   }, []);

@@ -35,12 +35,12 @@ const Rings = ({ position }) => {
             stagger: {
               each: 0.15,
             },
-          }
+          },
         );
     },
     {
       dependencies: position,
-    }
+    },
   );
 
   return (

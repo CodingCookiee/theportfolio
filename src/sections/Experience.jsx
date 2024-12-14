@@ -1,19 +1,19 @@
-import { Suspense, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
-import { useTheme } from '../utils/ThemeContext';
-import * as THREE from 'three';
+import { Suspense, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { useTheme } from "../utils/ThemeContext";
+import * as THREE from "three";
 
-import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import { workExperiences } from '../constants/index.js';
+import Developer from "../components/Developer.jsx";
+import CanvasLoader from "../components/Loading.jsx";
+import { workExperiences } from "../constants/index.js";
 
 const Experiences = () => {
-  const [animationName, setAnimationName] = useState('idle');
+  const [animationName, setAnimationName] = useState("idle");
   const { isDark } = useTheme();
 
   return (
-    <section className="c-space my-20" >
+    <section className="c-space my-20">
       <div className="w-full">
         <p className="head-text text-center special-font text-light-text dark:text-dark-text transition-colors duration-300">
           <b>My Work Experience</b>
@@ -24,28 +24,34 @@ const Experiences = () => {
             <Canvas>
               <ambientLight intensity={isDark ? 5 : 7} />
               <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={isDark ? 0.8 : 1} />
-              <OrbitControls 
-    enableZoom={false} 
-    maxPolarAngle={Math.PI / 2} 
-    makeDefault
-    enableDamping={true}
-    dampingFactor={0.05}
-    rotateSpeed={0.5}
-    mouseButtons={{
-      LEFT: THREE.MOUSE.ROTATE
-    }}
-    touches={{
-      ONE: THREE.TOUCH.ROTATE
-    }}
-    enablePan={false}
-    listenToKeyEvents={window}
-    eventOptions={{ passive: true }}
-  />
-
+              <directionalLight
+                position={[10, 10, 10]}
+                intensity={isDark ? 0.8 : 1}
+              />
+              <OrbitControls
+                enableZoom={false}
+                maxPolarAngle={Math.PI / 2}
+                makeDefault
+                enableDamping={true}
+                dampingFactor={0.05}
+                rotateSpeed={0.5}
+                mouseButtons={{
+                  LEFT: THREE.MOUSE.ROTATE,
+                }}
+                touches={{
+                  ONE: THREE.TOUCH.ROTATE,
+                }}
+                enablePan={false}
+                listenToKeyEvents={window}
+                eventOptions={{ passive: true }}
+              />
 
               <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
+                <Developer
+                  position-y={-3}
+                  scale={3}
+                  animationName={animationName}
+                />
               </Suspense>
             </Canvas>
           </div>
@@ -56,17 +62,19 @@ const Experiences = () => {
                 <div
                   key={index}
                   onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
-                  className="work-content_container hover:bg-light-primary/50 dark:hover:bg-dark-primary/50 transition-colors duration-300">
+                  onPointerOver={() =>
+                    setAnimationName(item.animation.toLowerCase())
+                  }
+                  onPointerOut={() => setAnimationName("idle")}
+                  className="work-content_container hover:bg-light-primary/50 dark:hover:bg-dark-primary/50 transition-colors duration-300"
+                >
                   <div className="flex flex-col h-full justify-start items-center py-2">
                     <div className="work-content_logo bg-light-primary dark:bg-dark-primary transition-colors duration-300">
-                    <img 
-                        className={`w-full h-full ml-1 ${isDark ? 'invert' : ''} transition-all duration-300`} 
-                        src={item.icon} 
-                        alt="" 
+                      <img
+                        className={`w-full h-full ml-1 ${isDark ? "invert" : ""} transition-all duration-300`}
+                        src={item.icon}
+                        alt=""
                       />
-
                     </div>
                     <div className="work-content_bar bg-light-text/10 dark:bg-dark-text/10 group-hover:bg-light-text/20 dark:group-hover:bg-dark-text/20 transition-colors duration-300" />
                   </div>

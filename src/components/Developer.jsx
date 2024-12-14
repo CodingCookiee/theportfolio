@@ -1,36 +1,36 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
-import { useGraph } from '@react-three/fiber';
-import { useAnimations, useFBX, useGLTF } from '@react-three/drei';
-import { SkeletonUtils } from 'three-stdlib';
+import React, { useEffect, useRef, useState, useMemo } from "react";
+import { useGraph } from "@react-three/fiber";
+import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
+import { SkeletonUtils } from "three-stdlib";
 
-const Developer = React.memo(({ animationName = 'idle', ...props }) => {
+const Developer = React.memo(({ animationName = "idle", ...props }) => {
   const group = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentAction, setCurrentAction] = useState(null);
 
-  const { scene } = useGLTF('/models/animations/developer.glb', {
-    onLoad: () => setIsLoaded(true)
+  const { scene } = useGLTF("/models/animations/developer.glb", {
+    onLoad: () => setIsLoaded(true),
   });
 
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
 
   const animations = useMemo(() => {
-    const idle = useFBX('/models/animations/idle.fbx');
-    const salute = useFBX('/models/animations/salute.fbx');
-    const clapping = useFBX('/models/animations/clapping.fbx');
-    const victory = useFBX('/models/animations/victory.fbx');
+    const idle = useFBX("/models/animations/idle.fbx");
+    const salute = useFBX("/models/animations/salute.fbx");
+    const clapping = useFBX("/models/animations/clapping.fbx");
+    const victory = useFBX("/models/animations/victory.fbx");
 
-    idle.animations[0].name = 'idle';
-    salute.animations[0].name = 'salute';
-    clapping.animations[0].name = 'clapping';
-    victory.animations[0].name = 'victory';
+    idle.animations[0].name = "idle";
+    salute.animations[0].name = "salute";
+    clapping.animations[0].name = "clapping";
+    victory.animations[0].name = "victory";
 
     return [
       idle.animations[0],
       salute.animations[0],
       clapping.animations[0],
-      victory.animations[0]
+      victory.animations[0],
     ];
   }, []);
 
@@ -116,6 +116,6 @@ const Developer = React.memo(({ animationName = 'idle', ...props }) => {
   );
 });
 
-useGLTF.preload('/models/animations/developer.glb');
+useGLTF.preload("/models/animations/developer.glb");
 
 export default Developer;

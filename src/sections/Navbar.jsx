@@ -6,14 +6,13 @@ import Button from "../utils/CustomButton";
 import { useTheme } from "../utils/ThemeContext";
 import { navLinks } from "../constants/index.js";
 import AudioButton from "../utils/AudioButton";
-import { scrollToSection } from '../utils/Scroll';
-
+import { scrollToSection } from "../utils/Scroll";
 
 const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
   const { isDark, setIsDark } = useTheme();
   const [isAudioPlaying, setIsAudioPlaying] = useState(audioEnabled);
   const [isIndicatorActive, setIsIndicatorActive] = useState(
-    audioIndicatorEnabled
+    audioIndicatorEnabled,
   );
   const { y: currentScrollY } = useWindowScroll();
   const [isNavVisible, setIsNavVisible] = useState(true);
@@ -36,7 +35,7 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     [clickAudioRef, linkAudioRef, audioElementRef].forEach((ref) => {
       if (ref.current) {
         if (isAudioPlaying) {
-          ref.current.volume = ref === audioElementRef ? 0.5 : 0.2;
+          ref.current.volume = ref === audioElementRef ? 0.3 : 0.1;
         } else {
           ref.current.pause();
           ref.current.currentTime = 0;
@@ -103,31 +102,32 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
     });
   }, [isMobileMenuOpen]);
 
-  // Navigation visibility
   useEffect(() => {
-    if (currentScrollY === 0) {
-      setIsNavVisible(true);
-      navContainerRef.current.classList.remove("floating-nav");
-    } else if (currentScrollY > lastScrollY) {
-      setIsNavVisible(false);
-      navContainerRef.current.classList.add("floating-nav");
-    } else if (currentScrollY < lastScrollY) {
-      setIsNavVisible(true);
-      navContainerRef.current.classList.add("floating-nav");
-    }
-    setLastScrollY(currentScrollY);
+    const handleScroll = () => {
+      if (currentScrollY === 0) {
+        setIsNavVisible(true);
+        navContainerRef.current?.classList.remove("floating-nav");
+      } else if (currentScrollY > lastScrollY) {
+        setIsNavVisible(false);
+        navContainerRef.current?.classList.add("floating-nav");
+      } else {
+        setIsNavVisible(true);
+        navContainerRef.current?.classList.add("floating-nav");
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    handleScroll();
   }, [currentScrollY, lastScrollY]);
 
   useEffect(() => {
-    gsap.to(
-      navContainerRef.current,
-      {
+    if (navContainerRef.current) {
+      gsap.to(navContainerRef.current, {
         y: isNavVisible ? 0 : -100,
         opacity: isNavVisible ? 1 : 0,
         duration: 0.2,
-      },
-      "nav"
-    );
+      });
+    }
   }, [isNavVisible]);
 
   const handleNavClick = (e, sectionId) => {
@@ -182,21 +182,20 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center h-full special-font">
-          {navLinks.map((link) => (
-  <a
-    key={link.id}
-    href={`#${link.id}`}
-    onClick={(e) => handleNavClick(e, link.id)}
-    className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
-  >
-    {link.name.toLowerCase()}
-  </a>
-))}
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`nav-hover-btn ${isDark ? "text-light-text" : "text-dark-text"}`}
+              >
+                {link.name.toLowerCase()}
+              </a>
+            ))}
             <button
               onClick={toggleAudioIndicator}
               className="ml-6 flex items-center space-x-0.5 !outline-none !border-none"
             >
-            
               <audio
                 ref={audioElementRef}
                 src="/audios/background_music.mp3"
@@ -250,13 +249,14 @@ const Navbar = ({ audioEnabled, audioIndicatorEnabled }) => {
           className="md:hidden overflow-hidden bg-light-primary/90 dark:bg-dark-primary/90 backdrop-blur-md"
         >
           <div className="px-4 py-2 space-y-4">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <a
-                key={index}
-                href={`#${link.name}`}
+                key={link.id}
+                href={`#${link.id}`}
                 onClick={() => {
                   toggleLinkAudio();
                   toggleMobileMenu();
+                  (e) => handleNavClick(e, link.id);
                 }}
                 className="block py-2 text-center text-lg font-medium text-neutral-800 dark:text-white hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
               >

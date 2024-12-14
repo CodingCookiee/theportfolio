@@ -129,8 +129,6 @@ body {
   .hero-heading {
     @apply uppercase font-zentry font-black text-5xl sm:right-10 sm:text-7xl md:text-9xl lg:text-[12rem];
   }
-
-
 }
 
 .indicator-line {
@@ -183,8 +181,6 @@ body {
   .btn-ping_dot {
     @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
   }
- 
-  
 
   /* hero section */
   .hero_tag {
@@ -236,11 +232,11 @@ body {
   }
 
   .work-canvas {
-    @apply col-span-1 rounded-lg ;
+    @apply col-span-1 rounded-lg;
   }
 
   .work-content {
-    @apply col-span-2 rounded-lg ;
+    @apply col-span-2 rounded-lg;
   }
 
   .work-content_container {
@@ -248,7 +244,7 @@ body {
   }
 
   .work-content_logo {
-    @apply rounded-3xl w-16 h-16 p-2 ;
+    @apply rounded-3xl w-16 h-16 p-2;
   }
 
   .work-content_bar {
@@ -269,13 +265,12 @@ body {
   }
 
   .field-btn {
-    @apply  px-5 py-2 min-h-12 rounded-lg  shadow-2xl flex justify-center items-center text-lg  gap-3;
+    @apply px-5 py-2 min-h-12 rounded-lg  shadow-2xl flex justify-center items-center text-lg  gap-3;
   }
 
   .field-btn_arrow {
     @apply w-2.5 h-2.5 object-contain invert brightness-0;
   }
-
 
   /* Skills Section */
   @layer utilities {
@@ -283,7 +278,7 @@ body {
       @apply hover:shadow-xl hover:shadow-light-accent/5 dark:hover:shadow-dark-accent/5 
       transform hover:-translate-y-1 transition-all duration-300;
     }
-    
+
     .skill-icon-container {
       @apply relative overflow-hidden rounded-lg 
       before:absolute before:inset-0 
@@ -293,11 +288,10 @@ body {
       before:transition-transform before:duration-300;
     }
   }
-  
 
   /*  footer */
   .social-icon {
-    @apply w-12 h-12 rounded-full flex justify-center items-center ;
+    @apply w-12 h-12 rounded-full flex justify-center items-center;
   }
 }
 
@@ -360,8 +354,6 @@ body {
     transform: translateY(-0px);
   }
 }
-
-
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

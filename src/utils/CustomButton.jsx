@@ -14,7 +14,7 @@ const Button = ({
       onClick={onClick}
       className={clsx(
         "group mt-2.5 relative z-10 w-fit cursor-pointer overflow-hidden rounded-full  px-7 py-3 text-black",
-        containerClass
+        containerClass,
       )}
     >
       {leftIcon}
