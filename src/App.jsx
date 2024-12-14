@@ -25,12 +25,13 @@ const LoadingScreen = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
       className={`h-screen w-screen flex items-center justify-center ${
         isDark ? "bg-dark-primary" : "bg-violet-50"
       }`}
     >
       <div className="flex flex-col items-center">
-      <Lottie
+        <Lottie
           animationData={robotAnimation}
           loop={true}
           autoplay={true}
@@ -39,7 +40,6 @@ const LoadingScreen = () => {
             height: 300,
             filter: isDark ? "invert(1)" : "none",
           }}
-      
           rendererSettings={{
         
             progressiveLoad: true
@@ -48,6 +48,7 @@ const LoadingScreen = () => {
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
           className={`text-xl -mt-10 ${isDark ? "text-white" : "text-black"}`}
         >
           {Math.round(progress)}%
@@ -66,19 +67,22 @@ const App = () => {
 
   useEffect(() => {
     const loadResources = async () => {
-      requestAnimationFrame(async () => {
-        const result = await preloadResources();
-        setResourcesLoaded(result);
-      });
+      const result = await preloadResources();
+      if (result) {
+        setTimeout(() => setResourcesLoaded(true), 2000);
+      } else {
+        setResourcesLoaded(true); 
+      }
     };
     loadResources();
   }, []);
 
   useEffect(() => {
     if (progress === 100 && resourcesLoaded) {
-      requestAnimationFrame(() => {
+      const timer = setTimeout(() => {
         setLoading(false);
-      });
+      }, 2000);
+      return () => clearTimeout(timer);
     }
   }, [progress, resourcesLoaded]);
 
@@ -92,6 +96,7 @@ const App = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
       className="App min-h-screen flex flex-col dark:bg-dark-primary bg-light-primary transition-colors duration-300"
     >
       <CustomCursor onFirstClick={handleFirstClick} />
