@@ -9,27 +9,39 @@ const CustomCursor = React.memo(({ onFirstClick }) => {
   const [cursorReady, setCursorReady] = useState(false);
   const frameRef = useRef();
 
-  const updateCursor = useCallback((e) => {
-    if (cursorReady) {
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
+  const updateCursor = useCallback(
+    (e) => {
+      if (cursorReady) {
+        if (frameRef.current) {
+          cancelAnimationFrame(frameRef.current);
+        }
+
+        frameRef.current = requestAnimationFrame(() => {
+          setPosition({ x: e.clientX, y: e.clientY });
+        });
       }
-      
-      frameRef.current = requestAnimationFrame(() => {
-        setPosition({ x: e.clientX, y: e.clientY });
-      });
-    }
-  }, [cursorReady]);
+    },
+    [cursorReady],
+  );
 
   const handleMouseOver = useCallback((e) => {
     const interactiveElements = [
-      "A", "BUTTON", "INPUT", "SELECT", "TEXTAREA",
-      "OPTION", "LABEL", "AUDIO", "VIDEO",
+      "A",
+      "BUTTON",
+      "INPUT",
+      "SELECT",
+      "TEXTAREA",
+      "OPTION",
+      "LABEL",
+      "AUDIO",
+      "VIDEO",
     ];
-    
-    if (interactiveElements.includes(e.target.tagName) ||
-        e.target.classList.contains("interactive") ||
-        e.target.role === "button") {
+
+    if (
+      interactiveElements.includes(e.target.tagName) ||
+      e.target.classList.contains("interactive") ||
+      e.target.role === "button"
+    ) {
       setIsHovering(true);
     }
   }, []);
@@ -54,9 +66,13 @@ const CustomCursor = React.memo(({ onFirstClick }) => {
   useEffect(() => {
     if (cursorReady) {
       window.addEventListener("mousemove", updateCursor, { passive: true });
-      document.addEventListener("mouseover", handleMouseOver, { passive: true });
+      document.addEventListener("mouseover", handleMouseOver, {
+        passive: true,
+      });
       document.addEventListener("mouseout", handleMouseOut, { passive: true });
-      document.addEventListener("click", handleFirstInteraction, { once: true });
+      document.addEventListener("click", handleFirstInteraction, {
+        once: true,
+      });
 
       return () => {
         window.removeEventListener("mousemove", updateCursor);
@@ -68,7 +84,13 @@ const CustomCursor = React.memo(({ onFirstClick }) => {
         }
       };
     }
-  }, [cursorReady, updateCursor, handleMouseOver, handleMouseOut, handleFirstInteraction]);
+  }, [
+    cursorReady,
+    updateCursor,
+    handleMouseOver,
+    handleMouseOut,
+    handleFirstInteraction,
+  ]);
 
   return (
     <div
@@ -79,7 +101,7 @@ const CustomCursor = React.memo(({ onFirstClick }) => {
         left: `${position.x}px`,
         top: `${position.y}px`,
         transform: `translate(-50%, -50%)`,
-        willChange: 'transform'
+        willChange: "transform",
       }}
     >
       {isHovering ? (

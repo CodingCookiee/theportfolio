@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 import { PerspectiveCamera } from "@react-three/drei";
-import { useState } from 'react';
+import { useState } from "react";
 
 import Cube from "../components/Cube.jsx";
 import Rings from "../components/Rings.jsx";
@@ -18,7 +18,7 @@ import { Model } from "../components/Model.jsx";
 
 const Hero = () => {
   const { isDark } = useTheme();
-  
+
   // Use media queries to determine screen size
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });

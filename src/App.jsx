@@ -21,7 +21,7 @@ const LoadingScreen = () => {
   const { progress } = useProgress();
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -41,11 +41,10 @@ const LoadingScreen = () => {
             filter: isDark ? "invert(1)" : "none",
           }}
           rendererSettings={{
-        
-            progressiveLoad: true
+            progressiveLoad: true,
           }}
         />
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -71,7 +70,7 @@ const App = () => {
       if (result) {
         setTimeout(() => setResourcesLoaded(true), 2000);
       } else {
-        setResourcesLoaded(true); 
+        setResourcesLoaded(true);
       }
     };
     loadResources();
@@ -92,7 +91,7 @@ const App = () => {
   }, []);
 
   const mainContent = (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

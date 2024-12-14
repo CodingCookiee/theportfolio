@@ -9,7 +9,7 @@ export const Model = React.memo(({ ...props }) => {
 
   // Call all texture hooks at the top level
   const darkScreenTexture = useTexture("/textures/desk/screen.png");
-  const lightScreenTexture = useTexture("/textures/desk/screen-dark.png");
+  const lightScreenTexture = useTexture("/textures/desk/screen.png");
   const monitorTexture = useTexture("textures/desk/monitor.png");
 
   const { nodes, materials } = useGLTF("/models/model.glb", {

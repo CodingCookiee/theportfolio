@@ -2,7 +2,6 @@ import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useTheme } from "../utils/ThemeContext";
 
-
 import Developer from "../components/Developer.jsx";
 import CanvasLoader from "../components/Loading.jsx";
 import { workExperiences } from "../constants/index.js";
