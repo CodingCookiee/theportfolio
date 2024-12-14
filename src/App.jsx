@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, Suspense } from "react";
 import Lottie from "lottie-react";
-import loadingAnimation from "/src/loading.json";
+import robotAnimation from "/src/robot.json";
 import { useProgress } from "@react-three/drei";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -13,26 +14,46 @@ import Footer from "./sections/Footer";
 import { useTheme } from "./utils/ThemeContext";
 import { ThemeProvider } from "./utils/ThemeContext";
 import CustomCursor from "./utils/CustomCursor";
+import { preloadResources } from "./utils/resourcePreloader";
 
 const LoadingScreen = () => {
   const { isDark } = useTheme();
   const { progress } = useProgress();
 
   return (
-    <div
-      className={`h-screen w-screen flex items-center justify-center ${isDark ? "bg-dark-primary" : "bg-violet-50"}`}
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`h-screen w-screen flex items-center justify-center ${
+        isDark ? "bg-dark-primary" : "bg-violet-50"
+      }`}
     >
+      <div className="flex flex-col items-center">
       <Lottie
-        animationData={loadingAnimation}
-        loop={true}
-        autoplay={true}
-        style={{
-          width: 300,
-          height: 300,
-          filter: isDark ? "invert(1)" : "none",
-        }}
-      />
-    </div>
+          animationData={robotAnimation}
+          loop={true}
+          autoplay={true}
+          style={{
+            width: 300,
+            height: 300,
+            filter: isDark ? "invert(1)" : "none",
+          }}
+      
+          rendererSettings={{
+        
+            progressiveLoad: true
+          }}
+        />
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`text-xl -mt-10 ${isDark ? "text-white" : "text-black"}`}
+        >
+          {Math.round(progress)}%
+        </motion.p>
+      </div>
+    </motion.div>
   );
 };
 
@@ -40,16 +61,26 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [audioIndicatorEnabled, setAudioIndicatorEnabled] = useState(false);
+  const [resourcesLoaded, setResourcesLoaded] = useState(false);
   const { progress } = useProgress();
 
   useEffect(() => {
-    if (progress === 100) {
-      const timer = setTimeout(() => {
+    const loadResources = async () => {
+      requestAnimationFrame(async () => {
+        const result = await preloadResources();
+        setResourcesLoaded(result);
+      });
+    };
+    loadResources();
+  }, []);
+
+  useEffect(() => {
+    if (progress === 100 && resourcesLoaded) {
+      requestAnimationFrame(() => {
         setLoading(false);
-      }, 2000);
-      return () => clearTimeout(timer);
+      });
     }
-  }, [progress]);
+  }, [progress, resourcesLoaded]);
 
   const handleFirstClick = useCallback(() => {
     setAudioEnabled(true);
@@ -57,7 +88,12 @@ const App = () => {
   }, []);
 
   const mainContent = (
-    <div className="App min-h-screen flex flex-col dark:bg-dark-primary bg-light-primary transition-colors duration-300">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="App min-h-screen flex flex-col dark:bg-dark-primary bg-light-primary transition-colors duration-300"
+    >
       <CustomCursor onFirstClick={handleFirstClick} />
       <Navbar
         audioEnabled={audioEnabled}
@@ -70,14 +106,14 @@ const App = () => {
       <Skills />
       <Contact />
       <Footer />
-    </div>
+    </motion.div>
   );
 
   return (
     <ThemeProvider>
-      <Suspense fallback={<LoadingScreen />}>
+      <AnimatePresence mode="wait">
         {loading ? <LoadingScreen /> : mainContent}
-      </Suspense>
+      </AnimatePresence>
     </ThemeProvider>
   );
 };

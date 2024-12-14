@@ -1,8 +1,7 @@
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { useTheme } from "../utils/ThemeContext";
-import * as THREE from "three";
+
 
 import Developer from "../components/Developer.jsx";
 import CanvasLoader from "../components/Loading.jsx";
