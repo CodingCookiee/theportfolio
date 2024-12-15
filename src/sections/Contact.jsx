@@ -8,7 +8,8 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
@@ -25,7 +26,7 @@ const Contact = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(form),
-        },
+        }
       );
 
       if (response.ok) {
@@ -61,8 +62,11 @@ const Contact = () => {
       </div>
 
       <div className="relative -mt-8 z-10 c-space flex items-center justify-center min-h-screen">
-        <div className="w-full max-w-3xl bg-light-primary/90 dark:bg-dark-secondary/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
-          <p className="text-center text-lg text-light-text/80 dark:text-dark-text/80 mt-3 transition-colors duration-300">
+        <div className="w-full max-w-3xl mx-auto bg-light-primary/90 dark:bg-dark-secondary/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+          <h3 className="head-text text-light-text dark:text-dark-text transition-colors duration-300">
+            Let's talk
+          </h3>
+          <p className="text-lg text-light-text/80 dark:text-dark-text/80 mt-3 transition-colors duration-300">
             Whether you're looking to build a new website, improve your existing
             platform, or bring a unique project to life, I'm here to help.
           </p>
@@ -70,7 +74,7 @@ const Contact = () => {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="mt-8 flex flex-col space-y-7"
+            className="mt-12 flex flex-col space-y-7"
           >
             <label className="space-y-3">
               <span className="field-label text-light-text dark:text-dark-text transition-colors duration-300">
