@@ -5,7 +5,7 @@
 
 1. 🔗 [LiveDemo](#livedemo)
 2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
+
 
 
 
