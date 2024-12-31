@@ -19,6 +19,12 @@ import {
   SiMongodb,
   SiMysql,
   SiJest,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPrisma,
+  SiFramer,
+  SiGooglecloud,
+  SiCloudinary
 } from "react-icons/si";
 import {
   TbApi,
@@ -57,6 +63,64 @@ export const navLinks = [
 ];
 
 export const myProjects = [
+{
+  title: "TaskFlow - Smart Task Management",
+  desc: "TaskFlow is a modern task management platform built with Next.js 15 and React, featuring real-time updates and smart authentication. The platform offers priority levels, categories, and a minimalistic UI for efficient task organization.",
+  subdesc: "Streamline your workflow with real-time task management and smart categorization.",
+  href: "https://github.com/CodingCookiee/TaskFlow-Pro",
+  texture: "/textures/projects/taskflowpro.mp4", 
+  logo: "/assets/projects/task.png", 
+  logoStyle: {
+    backgroundColor: "#1E293B",
+    border: "0.2px solid #334155",
+    boxShadow: "0px 0px 60px 0px #3B82F64D",
+  },
+  spotlight: "/assets/spotlight5.png", 
+tags: [
+  {
+    id: 1,
+    name: "Next.js",
+    path: "/assets/next.svg"
+  },
+  {
+    id: 2,
+    name: "React.js",
+    path: "/assets/react.svg",
+  },
+  {
+    id: 3,
+    name: "TailwindCSS",
+    path: "/assets/tailwindcss.png",
+  },
+  {
+    id: 4,
+    name: "PostgreSQL",
+    path: '/assets/postgre.svg'
+  },
+  {
+    id: 5,
+    name: "Prisma",
+    path: '/assets/prisma.svg'
+  },
+  {
+    id: 6,
+    name: "NextAuth",
+    path: '/assets/next.svg'
+  },
+  {
+    id: 7,
+    name: "Google Cloud",
+    path: '/assets/googlecloud.svg'
+  },
+  {
+    id: 8,
+    name: "Cloudinary",
+    path: '/assets/cloudinary.svg'
+  }
+]
+
+
+},
   {
     title: "PANDA AI - AI Chatbot",
     desc: "PANDA AI is an intelligent chatbot platform built with the MERN stack and styled with TailwindCSS. Designed for fast, responsive, and engaging conversations, PANDA AI delivers smooth interactions, powerful AI responses, and a sleek, modern interface. ",
