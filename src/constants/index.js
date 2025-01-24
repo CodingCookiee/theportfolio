@@ -24,7 +24,7 @@ import {
   SiPrisma,
   SiFramer,
   SiGooglecloud,
-  SiCloudinary
+  SiCloudinary,
 } from "react-icons/si";
 import {
   TbApi,
@@ -63,64 +63,132 @@ export const navLinks = [
 ];
 
 export const myProjects = [
-{
-  title: "TaskFlow - Smart Task Management",
-  desc: "TaskFlow is a modern task management platform built with Next.js 15 and React, featuring real-time updates and smart authentication. The platform offers priority levels, categories, and a minimalistic UI for efficient task organization.",
-  subdesc: "Streamline your workflow with real-time task management and smart categorization.",
-  href: "https://github.com/CodingCookiee/TaskFlow-Pro",
-  texture: "/textures/projects/taskflowpro.mp4", 
-  logo: "/assets/projects/task.png", 
-  logoStyle: {
-    backgroundColor: "#1E293B",
-    border: "0.2px solid #334155",
-    boxShadow: "0px 0px 60px 0px #3B82F64D",
-  },
-  spotlight: "/assets/spotlight5.png", 
-tags: [
   {
-    id: 1,
-    name: "Next.js",
-    path: "/assets/next.svg"
-  },
-  {
-    id: 2,
-    name: "React.js",
-    path: "/assets/react.svg",
-  },
-  {
-    id: 3,
-    name: "TailwindCSS",
-    path: "/assets/tailwindcss.png",
-  },
-  {
-    id: 4,
-    name: "PostgreSQL",
-    path: '/assets/postgre.svg'
-  },
-  {
-    id: 5,
-    name: "Prisma",
-    path: '/assets/prisma.svg'
-  },
-  {
-    id: 6,
-    name: "NextAuth",
-    path: '/assets/next.svg'
-  },
-  {
-    id: 7,
-    name: "Google Cloud",
-    path: '/assets/googlecloud.svg'
-  },
-  {
-    id: 8,
-    name: "Cloudinary",
-    path: '/assets/cloudinary.svg'
-  }
-]
+    title: "Minimal - Modern E-commerce Platform",
+    desc: "Minimal is a comprehensive e-commerce platform built with React 18 and Vite, featuring JWT authentication, Google OAuth, and Stripe integration. The platform offers robust product management, real-time cart updates, and an extensive admin dashboard, all wrapped in a responsive design with Framer Motion animations.",
+    subdesc:
+      "Experience seamless online shopping with modern authentication, real-time updates, and smooth payment processing.",
+    href: "https://github.com/CodingCookiee/Minimal",
+    texture: "/textures/projects/minimal.mp4",
+    logo: "/assets/projects/minimal.svg",
+    logoStyle: {
+      backgroundColor: "#1a1a1a",
+    border: "0.2px solid #2a2a2a",
+    boxShadow: "0px 0px 60px 0px #4B5563",
+    },
+    spotlight: "/assets/spotlight5.png",
+    tags: [
+      {
+        id: 1,
+        name: "React.js",
+        path: "/assets/react.svg"
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/tailwindcss.png"
+      },
+      {
+        id: 3,
+        name: "Node.js",
+        path: "/assets/tech/nodejs.png"
+      },
+      {
+        id: 4,
+        name: "Express",
+        path: "/assets/tech/express.png",
+      },
+      {
+        id: 5,
+        name: "MongoDB",
+        path: "/assets/tech/mongo.png"
+      },
+      {
+        id: 6,
+        name: "Stripe",
+        path: "/assets/tech/stripe.svg"
+      },
+      {
+        id: 7,
+        name: "Redis",
+        path: "/assets/tech/redis.svg"
+      },
+      {
+        id: 8,
+        name: "Google Auth",
+        path: "/assets/tech/google.svg"
+      },
+      {
+        id: 9,
+        name: "Cloudinary",
+        path: "/assets/tech/cloudinary.svg"
+      },
+      {
+        id: 10,
+        name: "JWT",
+        path: "/assets/tech/jwt.svg"
+      },
 
 
-},
+    ]
+  },
+  {
+    title: "TaskFlow - Smart Task Management",
+    desc: "TaskFlow is a modern task management platform built with Next.js 15 and React, featuring real-time updates and smart authentication. The platform offers priority levels, categories, and a minimalistic UI for efficient task organization.",
+    subdesc:
+      "Streamline your workflow with real-time task management and smart categorization.",
+    href: "https://github.com/CodingCookiee/TaskFlow-Pro",
+    texture: "/textures/projects/taskflowpro.mp4",
+    logo: "/assets/projects/task.png",
+    logoStyle: {
+      backgroundColor: "#1E293B",
+      border: "0.2px solid #334155",
+      boxShadow: "0px 0px 60px 0px #3B82F64D",
+    },
+    spotlight: "/assets/spotlight5.png",
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+        path: "/assets/next.svg",
+      },
+      {
+        id: 2,
+        name: "React.js",
+        path: "/assets/react.svg",
+      },
+      {
+        id: 3,
+        name: "TailwindCSS",
+        path: "/assets/tailwindcss.png",
+      },
+      {
+        id: 4,
+        name: "PostgreSQL",
+        path: "/assets/postgre.svg",
+      },
+      {
+        id: 5,
+        name: "Prisma",
+        path: "/assets/prisma.svg",
+      },
+      {
+        id: 6,
+        name: "NextAuth",
+        path: "/assets/next.svg",
+      },
+      {
+        id: 7,
+        name: "Google Cloud",
+        path: "/assets/googlecloud.svg",
+      },
+      {
+        id: 8,
+        name: "Cloudinary",
+        path: "/assets/cloudinary.svg",
+      },
+    ],
+  },
   {
     title: "PANDA AI - AI Chatbot",
     desc: "PANDA AI is an intelligent chatbot platform built with the MERN stack and styled with TailwindCSS. Designed for fast, responsive, and engaging conversations, PANDA AI delivers smooth interactions, powerful AI responses, and a sleek, modern interface. ",
